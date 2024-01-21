@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isGrounded)
         {
-            _velocity.y = 0.1f;
+            _velocity.y = -0.1f;
             return;
         }
 
