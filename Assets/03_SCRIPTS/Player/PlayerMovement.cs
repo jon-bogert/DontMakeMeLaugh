@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Video;
 using XephTools;
 
 [RequireComponent(typeof(CharacterController))]
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         GroundCheck();
+        DebugMonitor.UpdateValue("is Grounded", _isGrounded);
         ApplyGravity();
 
         //Looking
@@ -128,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isGrounded)
         {
-            _velocity.y = -0.1f;
+            _velocity.y = -0.2f;
             return;
         }
 
@@ -142,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move (Vector2 axis)
     {
+        DebugMonitor.UpdateValue("MoveAxis", axis);
         float speed = (_allowSprint && _sprintInput.action.IsPressed()) ? _sprintSpeed : _moveSpeed;
         Vector3 velocity = new Vector3(
             axis.x * speed,
