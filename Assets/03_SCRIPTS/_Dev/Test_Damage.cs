@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(SphereCollider))]
 public class Test_Damage : MonoBehaviour
 {
     [SerializeField] float _damage;
@@ -23,7 +22,6 @@ public class Test_Damage : MonoBehaviour
                 //Enemy Damage Testing
                 Health _enemyHealth = GetComponent<Health>();
                 _enemyHealth.TakeDamage(5);
-                //Destroy(gameObject);
             }
             else
             {

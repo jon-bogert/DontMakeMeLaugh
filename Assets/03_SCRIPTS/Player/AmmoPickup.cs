@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
@@ -19,7 +17,7 @@ public class AmmoPickup : MonoBehaviour
             if (other.TryGetComponent<Ammo>(out var _playerAmmo))
             {
                 _playerAmmo.AmmoPickup(_ammoToPickup);
-                if (_playerAmmo._clip == 0)
+                if (_playerAmmo.clip == 0)
                 {
                     _playerAmmo.Reload();
                 }
