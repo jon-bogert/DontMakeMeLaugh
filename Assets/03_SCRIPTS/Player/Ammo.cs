@@ -14,7 +14,27 @@ public class Ammo : MonoBehaviour
     [SerializeField] float _ammoMax;
     [SerializeField] TextMeshProUGUI _ammoText;
     [SerializeField] Slider _clipSlider;
-    
+
+    private void Update()
+    {
+        if (_clip == 0)
+        {
+            Reload();
+        }
+
+        //Ammo Testing
+        bool mouseInput = Input.GetMouseButtonDown(0);
+        if (mouseInput)
+        {
+            Fire();
+        }
+        bool reloadInput = Input.GetKeyDown("r");
+        if (reloadInput)
+        {
+            Reload();
+        }
+    }
+
     public void Fire()
     {
         _clip -= 1;
@@ -23,21 +43,34 @@ public class Ammo : MonoBehaviour
 
     public void Reload()
     {
-        if (_clip != 0)
+        if (_ammo != 0)
         {
-            _ammo += _clip;
-            _clip = 0;
+            if (_clip != 0)
+            {
+                _ammo += _clip;
+                _clip = 0;
+            }
+            _ammo -= _clipMax;
+            _ammo = Mathf.Clamp(_ammo, 0, _ammoMax);
+            _clip += _clipMax;
+            _clip = Mathf.Clamp(_clip, 0, _clipMax);
+            UpdateUI();
         }
-        _ammo -= _clipMax;
-        _clip += _clipMax;
-        UpdateUI();
+        else
+        {
+            Debug.Log("Out of Ammo!");
+        }
+        
     }
 
+    //Move to ammo pickup script?
     public void AmmoPickup(float pickupAmount)
     {
         if (_ammo < _ammoMax)
         {
             _ammo += pickupAmount;
+            _ammo = Mathf.Clamp(_ammo, 0, _ammoMax);
+            UpdateUI();
         }
         else
         {
