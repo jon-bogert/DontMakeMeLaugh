@@ -5,6 +5,8 @@ public class Billboard : MonoBehaviour
     [SerializeField] Transform _camera;
     [SerializeField] bool _doLookVertical = true;
 
+    public bool doLookVertical { get { return _doLookVertical; } set {  _doLookVertical = value; } }
+
     private void Start()
     {
         //Get Camera if not assigned
