@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     CharacterController _charController;
 
     public Vector3 velocity { get { return _velocity; } }
+    public bool isMoving { get { return _isMoving;} }
+    public bool isSprinting { get { return _sprintInput.action.IsPressed(); } }
 
     private void Awake()
     {
@@ -59,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if (_camera == null)
             _camera = Camera.main.transform;
 
-        _cameraHeight = _camera.position.y;
+        _cameraHeight = _camera.localPosition.y;
         _posLastFrame = transform.position;
 
         Cursor.lockState = CursorLockMode.Locked;
