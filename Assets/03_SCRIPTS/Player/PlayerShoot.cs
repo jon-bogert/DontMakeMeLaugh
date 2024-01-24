@@ -48,7 +48,7 @@ public class PlayerShoot : MonoBehaviour
             return;
 
         _ammo.Fire();
-        FindObjectOfType<SoundManager>().Play("shoot"); // TODO - Change
+        //FindObjectOfType<SoundManager>().Play("shoot"); // TODO - Change
         Vector3 velocity = _firePoint.forward * _projectileSpeed;
         _projectilePool.FireNext(_firePoint.transform.position, velocity);
     }
