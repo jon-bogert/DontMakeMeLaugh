@@ -145,7 +145,19 @@ MonoBehaviour:
       m_Calls: []
   _onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1930656645079193292}
+        m_TargetAssemblyTypeName: HealthFace, Assembly-CSharp
+        m_MethodName: CheckHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1197071771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +996,7 @@ GameObject:
   - component: {fileID: 1350633679481988829}
   - component: {fileID: 3659107015127373510}
   - component: {fileID: 7367997951923549186}
+  - component: {fileID: 1930656645079193292}
   m_Layer: 5
   m_Name: Face Health
   m_TagString: Untagged
@@ -1039,7 +1052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 515470e789f2cb64cbb1b1f091737000, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 004ca79f045f5c045b3c0cb4d73cdc9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1048,7 +1061,29 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4126.1
+--- !u!114 &1930656645079193292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859575595372181137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f432eddf26ef004c9b4c50fb59de804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _faceSprites:
+  - {fileID: 21300000, guid: d6e58fe09877a8744b9b74055040e2b5, type: 3}
+  - {fileID: 21300000, guid: 004ca79f045f5c045b3c0cb4d73cdc9f, type: 3}
+  - {fileID: 21300000, guid: 673ff510e8ab38a4fb5bb198956d6dd1, type: 3}
+  - {fileID: 21300000, guid: 2b615ba407b03b947a0dfb79d43fa79f, type: 3}
+  - {fileID: 21300000, guid: 4345b19f90d632e42ba446ffc89ddf7f, type: 3}
+  - {fileID: 21300000, guid: c3f9934905a43b640a208dda42011c76, type: 3}
+  - {fileID: 21300000, guid: da9774346ca8600498b5b3061da237e6, type: 3}
+  - {fileID: 21300000, guid: 275b139ddddf02d40969b2703450140c, type: 3}
+  _swapTime: 5
 --- !u!1 &3538786114648222026
 GameObject:
   m_ObjectHideFlags: 0
