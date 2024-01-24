@@ -1083,7 +1083,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c3f9934905a43b640a208dda42011c76, type: 3}
   - {fileID: 21300000, guid: da9774346ca8600498b5b3061da237e6, type: 3}
   - {fileID: 21300000, guid: 275b139ddddf02d40969b2703450140c, type: 3}
-  _swapTime: 5
+  _swapTime: 2
 --- !u!1 &3538786114648222026
 GameObject:
   m_ObjectHideFlags: 0
