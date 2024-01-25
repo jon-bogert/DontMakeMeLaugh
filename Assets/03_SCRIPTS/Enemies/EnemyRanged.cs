@@ -12,8 +12,10 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
+    [SerializeField] LayerMask _wallcheckMask;
 
     [SerializeField] Texture _attackTexture;
+    [SerializeField] Texture _deadTexture;
 
     [Header("References")]
     [SerializeField] Transform _camera;
@@ -37,7 +39,20 @@ public class EnemyRanged : MonoBehaviour
     {
         get
         {
-            return (_camera.position - transform.position).sqrMagnitude <= _detectionRange * _detectionRange;
+            float p = (_camera.position - transform.position).sqrMagnitude;
+            float w = float.MaxValue;
+            RaycastHit[] hitInfo = Physics.RaycastAll(transform.position, (_camera.position - transform.position).normalized, _detectionRange, _wallcheckMask);
+            if (hitInfo.Length == 0)
+            {
+                return p <= _detectionRange * _detectionRange;
+            }
+            foreach (RaycastHit hit in hitInfo)
+            {
+                if (hit.distance < w)
+                    w = hit.distance;
+            }
+            w *= w;
+            return p <= _detectionRange * _detectionRange && w > p;
         }
     }
     public Vector3 moveTarget {  get { return _patrolPoints[_moveTarget].position; } }
@@ -131,6 +146,19 @@ public class EnemyRanged : MonoBehaviour
             ChangeState(EnemyState.XtraDead);
             return;
         }
+
+        if (_deadTexture != null)
+        {
+            _material.SetTexture("_MainTex", _deadTexture);
+            _material.SetTexture("_LeftTex", _deadTexture);
+            _material.SetTexture("_RightTex", _deadTexture);
+            _material.SetTexture("_BackTex", _deadTexture);
+        }
+        else
+        {
+            Debug.LogWarning("Enemy Ranged \"" + name + "\" Dead texture was null");
+        }
+
         ChangeState(EnemyState.Dead);
     }
 }
