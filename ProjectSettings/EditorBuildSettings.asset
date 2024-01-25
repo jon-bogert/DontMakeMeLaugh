@@ -14,4 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_SCENES/Dev/Pierre/Level1.unity
     guid: b5ead08655ee3d24caf47518b68180bd
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f2c26852a81bdcc41bfec9133c71cf36,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5c4f31359ba5f6d49886e20febb74c28,
+      type: 2}
