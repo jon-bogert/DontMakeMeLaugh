@@ -14,6 +14,7 @@ public class Ammo : MonoBehaviour
     [Header ("References")]
     [SerializeField] TextMeshProUGUI _ammoText;
     [SerializeField] Slider _clipSlider;
+    [SerializeField] Image _leaf;
 
     [Header("Inputs")]
     [SerializeField] InputActionReference _reloadInput;
@@ -93,6 +94,14 @@ public class Ammo : MonoBehaviour
         }
         _ammoText.text = _ammo.ToString();
         _clipSlider.value = _clip;
+        if (_clip == _clipMax)
+        {
+            _leaf.gameObject.SetActive(true);
+        }
+        else if (_clip < _clipMax)
+        {
+            _leaf.gameObject.SetActive(false);
+        }
     }
     
     private void OnReloadInput(InputAction.CallbackContext ctx)
