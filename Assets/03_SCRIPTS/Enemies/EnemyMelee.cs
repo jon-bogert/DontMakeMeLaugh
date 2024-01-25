@@ -18,6 +18,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] LayerMask _wallcheckMask;
 
     [SerializeField] Texture _attackTexture;
+    [SerializeField] Texture _deadTexture;
 
     [Header("References")]
     [SerializeField] Transform _camera;
@@ -48,10 +49,8 @@ public class EnemyMelee : MonoBehaviour
             {
                 return p <= _detectionRange * _detectionRange;
             }
-            string objNames = "";
             foreach (RaycastHit hit in hitInfo)
             {
-                objNames += hit.transform.name + "/";
                 if (hit.distance < w)
                     w = hit.distance;
             }
@@ -149,6 +148,18 @@ public class EnemyMelee : MonoBehaviour
             ChangeState(EnemyState.XtraDead);
             return;
         }
+        if (_deadTexture != null)
+        {
+            _material.SetTexture("_MainTex", _deadTexture);
+            _material.SetTexture("_LeftTex", _deadTexture);
+            _material.SetTexture("_RightTex", _deadTexture);
+            _material.SetTexture("_BackTex", _deadTexture);
+        }
+        else
+        {
+            Debug.LogWarning("Enemy Melee \"" + name + "\" Dead texture was null");
+        }
+
         ChangeState(EnemyState.Dead);
     }
 }
