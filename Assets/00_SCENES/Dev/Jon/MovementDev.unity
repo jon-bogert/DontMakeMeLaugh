@@ -2431,11 +2431,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 429521807642722605, guid: 7e24a09b451a19a4dbc316807c5b05ad,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 667504818386603507, guid: 7e24a09b451a19a4dbc316807c5b05ad,
         type: 3}
       propertyPath: m_RootOrder
@@ -2496,12 +2491,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1670874451821068958, guid: 7e24a09b451a19a4dbc316807c5b05ad,
-        type: 3}
-      propertyPath: _interactInput
-      value: 
-      objectReference: {fileID: 6513441385682383758, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
-        type: 3}
     - target: {fileID: 6003856412647036034, guid: 7e24a09b451a19a4dbc316807c5b05ad,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2709,11 +2698,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8677329158502458759, guid: bafca9c528054714caca110c7923bce6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2aee51baaf3ddf4489e82f6bfacad59b, type: 2}
     - target: {fileID: 8677329158502458778, guid: bafca9c528054714caca110c7923bce6,
         type: 3}
       propertyPath: m_Name
