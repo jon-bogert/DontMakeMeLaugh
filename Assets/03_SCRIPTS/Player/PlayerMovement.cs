@@ -164,7 +164,12 @@ public class PlayerMovement : MonoBehaviour
             0,
             axis.y * speed);
 
-        velocity = _camera.right * velocity.x + _camera.forward * velocity.z;
+        Vector3 fwd = new Vector3(_camera.forward.x, 0f, _camera.forward.z);
+        fwd.Normalize();
+        Vector3 rgt = new Vector3(_camera.right.x, 0f, _camera.right.z);
+        rgt.Normalize();
+
+        velocity = rgt * velocity.x + fwd * velocity.z;
 
         velocity.y += _velocity.y;
 
