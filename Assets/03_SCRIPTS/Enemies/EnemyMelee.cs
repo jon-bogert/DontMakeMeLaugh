@@ -17,6 +17,8 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
     [SerializeField] LayerMask _wallcheckMask;
 
+    [SerializeField] Texture _attackTexture;
+
     [Header("References")]
     [SerializeField] Transform _camera;
 
@@ -25,6 +27,7 @@ public class EnemyMelee : MonoBehaviour
 
     CharacterController _charController;
     StateMachine<EnemyMelee> _stateMachine;
+    Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
 
@@ -72,7 +75,6 @@ public class EnemyMelee : MonoBehaviour
         _stateMachine.AddState<MeleeDead>();
         _stateMachine.AddState<MeleeXtraDead>();
         _stateMachine.ChangeState((int)EnemyState.Idle);
-
     }
     private void Start()
     {
@@ -83,6 +85,10 @@ public class EnemyMelee : MonoBehaviour
         {
             _patrolPoints[i].SetParent(null);
         }
+
+        _material = GetComponentInChildren<MeshRenderer>().material;
+        if (_material == null)
+            Debug.LogError("Enemy Melee \"" + name + "\" was unable find it's material");
     }
 
     private void Update()
@@ -110,6 +116,14 @@ public class EnemyMelee : MonoBehaviour
     internal void SetVelocity(Vector3 veclocity)
     {
         _velocity = veclocity;
+    }
+
+    internal void SetAttackTexture()
+    {
+        if (_attackTexture != null)
+            _material.SetTexture("_MainTex", _attackTexture);
+        else
+            Debug.LogWarning("Enemy Melee \"" + name + "\" Attack texture was null");
     }
 
     internal void Attack()

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using XephTools;
-using static UnityEngine.GraphicsBuffer;
 
 public class MeleeAttack : IState<EnemyMelee>
 {
     float _timer = 0f;
     public void Enter(EnemyMelee agent)
     {
+        agent.SetAttackTexture();
         _timer = 0f;
     }
 

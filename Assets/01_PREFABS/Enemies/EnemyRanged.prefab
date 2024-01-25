@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 5266130097867109115}
   - component: {fileID: 5266130097867109101}
   - component: {fileID: 5266130097867109100}
+  - component: {fileID: 7537466261648653731}
   m_Layer: 8
   m_Name: EnemyRanged
   m_TagString: Untagged
@@ -231,6 +232,7 @@ MonoBehaviour:
   _patrolArriveDistance: 1
   _attackRate: 2
   _patrolPoints: []
+  _attackTexture: {fileID: 0}
   _camera: {fileID: 0}
   onAttack:
     m_PersistentCalls:
@@ -279,7 +281,19 @@ MonoBehaviour:
         m_CallState: 2
   _onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7537466261648653731}
+        m_TargetAssemblyTypeName: EnemyDamageFlash, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5266130097867109101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,3 +322,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileSpeed: 20
   _firePoint: {fileID: 1533957375374917631}
+--- !u!114 &7537466261648653731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266130097867109107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5efb3fee6d3c41a0fa5d06f2a3f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeUp: 0.05
+  _timeDown: 0.05

@@ -13,6 +13,8 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] float _attackRate = 2f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
 
+    [SerializeField] Texture _attackTexture;
+
     [Header("References")]
     [SerializeField] Transform _camera;
 
@@ -22,6 +24,7 @@ public class EnemyRanged : MonoBehaviour
     CharacterController _charController;
     ProjectilePool _projectilePool;
     StateMachine<EnemyRanged> _stateMachine;
+    Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
 
@@ -65,6 +68,10 @@ public class EnemyRanged : MonoBehaviour
         {
             _patrolPoints[i].SetParent(null);
         }
+
+        _material = GetComponentInChildren<MeshRenderer>().material;
+        if (_material == null)
+            Debug.LogError("Enemy Ranged \"" + name + "\" was unable find it's material");
     }
 
     private void Update()
@@ -92,6 +99,13 @@ public class EnemyRanged : MonoBehaviour
     internal void SetVelocity(Vector3 veclocity)
     {
         _velocity = veclocity;
+    }
+    internal void SetAttackTexture()
+    {
+        if (_attackTexture != null)
+            _material.SetTexture("_MainTex", _attackTexture);
+        else
+            Debug.LogWarning("Enemy Melee \"" + name + "\" Attack texture was null");
     }
 
     internal void Attack()

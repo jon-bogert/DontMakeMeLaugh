@@ -6,6 +6,7 @@ public class RangedAttack : IState<EnemyRanged>
     float _timer = 0f;
     public void Enter(EnemyRanged agent)
     {
+        agent.SetAttackTexture();
         _timer = 0f;
     }
 
