@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using XephTools;
@@ -16,6 +15,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
+    [SerializeField] LayerMask _wallcheckMask;
 
     [Header("References")]
     [SerializeField] Transform _camera;
@@ -38,7 +38,28 @@ public class EnemyMelee : MonoBehaviour
     {
         get
         {
-            return (_camera.position - transform.position).sqrMagnitude <= _detectionRange * _detectionRange;
+            float p = (_camera.position - transform.position).sqrMagnitude;
+            float w = float.MaxValue;
+            RaycastHit[] hitInfo = Physics.RaycastAll(transform.position, (_camera.position - transform.position).normalized, _detectionRange, _wallcheckMask);
+            DebugMonitor.UpdateValue("hit length", hitInfo.Length);
+            if (hitInfo.Length == 0)
+            {
+                DebugMonitor.UpdateValue("p", p);
+                DebugMonitor.UpdateValue("w", "null");
+                return p <= _detectionRange * _detectionRange;
+            }
+            string objNames = "";
+            foreach (RaycastHit hit in hitInfo)
+            {
+                objNames += hit.transform.name + "/";
+                if (hit.distance < w)
+                    w = hit.distance;
+            }
+            w *= w;
+            DebugMonitor.UpdateValue("object Names", objNames);
+            DebugMonitor.UpdateValue("p", p);
+            DebugMonitor.UpdateValue("w", w);
+            return p <= _detectionRange * _detectionRange &&  w > p;
         }
     }
     public Vector3 moveTarget {  get { return _patrolPoints[_moveTarget].position; } }
