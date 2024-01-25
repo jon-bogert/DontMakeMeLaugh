@@ -15,6 +15,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] InputActionReference _shootInput;
 
     ProjectilePool _projectilePool;
+    SoundPlayer _soundPlayer;
     Ammo _ammo;
     float _fireTimer = 0;
 
@@ -22,6 +23,7 @@ public class PlayerShoot : MonoBehaviour
     {
         _fireTimer = _fireRate; // so we can shoot right away
         _projectilePool = GetComponent<ProjectilePool>();
+        _soundPlayer = GetComponent<SoundPlayer>();
         _ammo = GetComponent<Ammo>();
         //get main camera if not assigned
         if (_firePoint == null)
@@ -48,7 +50,7 @@ public class PlayerShoot : MonoBehaviour
             return;
 
         _ammo.Fire();
-        //FindObjectOfType<SoundManager>().Play("shoot"); // TODO - Change
+        _soundPlayer.Play("shoot", SoundPlayer.Bank.Multi);
         Vector3 velocity = _firePoint.forward * _projectileSpeed;
         _projectilePool.FireNext(_firePoint.transform.position, velocity);
     }
