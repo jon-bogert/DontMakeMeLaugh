@@ -138,6 +138,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1d857ece-6fd7-4cdf-8890-87b26192c7b4",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "43796db2-1808-4b8b-a00a-4fb96bed2ea5",
                     "path": "<Gamepad>/rightStick/x",
                     "interactions": "",
@@ -182,6 +193,17 @@
                 },
                 {
                     "name": "",
+                    "id": "04c7d3e6-1036-4887-a155-1cdc10df2ab9",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b8f5c5cd-e4cd-45e8-bc60-3a44563cbff2",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -215,6 +237,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4ef15445-1d2c-47c0-a3f5-c40c7b8443b8",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "431e771c-eb93-439e-b0b7-7783ea8cd85e",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -237,6 +270,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9b62c28f-0ada-44b6-bd18-cbd51b1b271a",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3724562a-106a-4002-9c61-6fdba538f154",
                     "path": "<Keyboard>/r",
                     "interactions": "",
@@ -250,6 +294,17 @@
                     "name": "",
                     "id": "7879898c-5d3e-4a83-a8de-05860d14bb2e",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b8fa55a-d79a-42da-bf99-da4ccca8ad39",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
