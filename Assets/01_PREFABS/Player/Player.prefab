@@ -105,8 +105,12 @@ MonoBehaviour:
     type: 3}
   _sprintInput: {fileID: 4385125301659405786, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
     type: 3}
-  _lookInput: {fileID: 356918480749814742, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
+  _lookInput_GAMEPAD: {fileID: 356918480749814742, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
     type: 3}
+  _lookInput_MOUSE: {fileID: 6175387379947984393, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
+    type: 3}
+  _mouseSensitivity: 0.67
+  _gamepadSensitivity: 1
 --- !u!114 &3296246941167007825
 MonoBehaviour:
   m_ObjectHideFlags: 0

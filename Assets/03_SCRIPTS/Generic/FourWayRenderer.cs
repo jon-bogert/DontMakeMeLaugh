@@ -57,9 +57,6 @@ public class FourWayRenderer : MonoBehaviour
         else // (angle >= -135 && angle < -45)
             newDirection = FacingDirection.Left;
 
-        DebugMonitor.UpdateValue("Angle", angle);
-        DebugMonitor.UpdateValue("Direction", newDirection);
-
         if (newDirection == _facingDirection)
             return;
 

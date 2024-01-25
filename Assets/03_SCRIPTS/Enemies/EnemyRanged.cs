@@ -70,7 +70,6 @@ public class EnemyRanged : MonoBehaviour
     private void Update()
     {
         _stateMachine.Update(Time.deltaTime);
-        DebugMonitor.UpdateValue("Enemy State", (EnemyState)_stateMachine.currentState);
         _charController.Move(_velocity * Time.deltaTime);
     }
 

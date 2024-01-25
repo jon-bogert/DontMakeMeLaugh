@@ -41,11 +41,8 @@ public class EnemyMelee : MonoBehaviour
             float p = (_camera.position - transform.position).sqrMagnitude;
             float w = float.MaxValue;
             RaycastHit[] hitInfo = Physics.RaycastAll(transform.position, (_camera.position - transform.position).normalized, _detectionRange, _wallcheckMask);
-            DebugMonitor.UpdateValue("hit length", hitInfo.Length);
             if (hitInfo.Length == 0)
             {
-                DebugMonitor.UpdateValue("p", p);
-                DebugMonitor.UpdateValue("w", "null");
                 return p <= _detectionRange * _detectionRange;
             }
             string objNames = "";
@@ -56,9 +53,6 @@ public class EnemyMelee : MonoBehaviour
                     w = hit.distance;
             }
             w *= w;
-            DebugMonitor.UpdateValue("object Names", objNames);
-            DebugMonitor.UpdateValue("p", p);
-            DebugMonitor.UpdateValue("w", w);
             return p <= _detectionRange * _detectionRange &&  w > p;
         }
     }
@@ -94,7 +88,6 @@ public class EnemyMelee : MonoBehaviour
     private void Update()
     {
         _stateMachine.Update(Time.deltaTime);
-        DebugMonitor.UpdateValue("Enemy State", (EnemyState)_stateMachine.currentState);
         _charController.Move(_velocity * Time.deltaTime);
     }
 

@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.Video;
-using XephTools;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -33,7 +31,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Inputs")]
     [SerializeField] InputActionReference _moveInput;
     [SerializeField] InputActionReference _sprintInput;
-    [SerializeField] InputActionReference _lookInput;
+    [SerializeField] InputActionReference _lookInput_GAMEPAD;
+    [SerializeField] InputActionReference _lookInput_MOUSE;
+    [Range(0.5f, 3f)]
+    [SerializeField] float _mouseSensitivity = 1f;
+    [Range(0.5f, 3f)]
+    [SerializeField] float _gamepadSensitivity = 1f;
 
     Vector3 _posLastFrame = Vector3.zero;
     Vector3 _velocity = Vector3.zero;
@@ -71,14 +74,18 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         GroundCheck();
-        DebugMonitor.UpdateValue("is Grounded", _isGrounded);
         ApplyGravity();
 
         //Looking
-        float lookAxis = _lookInput.action.ReadValue<float>();
-        if (lookAxis != 0)
+        float lookAxis_GP = _lookInput_GAMEPAD.action.ReadValue<float>();
+        float lookAxis_MS = _lookInput_MOUSE.action.ReadValue<float>();
+        if (lookAxis_MS != 0)
         {
-            Look(lookAxis);
+            LookMouse(lookAxis_MS);
+        }
+        else if (lookAxis_GP != 0)
+        {
+            LookGamepad(lookAxis_GP);
         }
 
         //Moveing
@@ -139,14 +146,18 @@ public class PlayerMovement : MonoBehaviour
         _velocity.y += _gravity * Time.deltaTime;
     }
 
-    private void Look(float axis)
+    private void LookMouse(float axis)
     {
-        transform.Rotate(Vector3.up, axis * _lookSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, axis * _lookSpeed * 0.001f * _mouseSensitivity);
+    }
+
+    private void LookGamepad(float axis)
+    {
+        transform.Rotate(Vector3.up, axis * _lookSpeed * Time.deltaTime * _gamepadSensitivity);
     }
 
     private void Move (Vector2 axis)
     {
-        DebugMonitor.UpdateValue("MoveAxis", axis);
         float speed = (_allowSprint && _sprintInput.action.IsPressed()) ? _sprintSpeed : _moveSpeed;
         Vector3 velocity = new Vector3(
             axis.x * speed,
@@ -208,7 +219,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Bobbing()
     {
-        DebugMonitor.UpdateValue("return timer", _returnTimer);
         if (_isMoving)
         {
             float newY = _cameraHeight + _bobHeight * Mathf.Sin(_t);
@@ -230,7 +240,6 @@ public class PlayerMovement : MonoBehaviour
 
         _returnTimer -= Time.deltaTime;
         float t = _returnTimer / _bobReturnSpeed;
-        DebugMonitor.UpdateValue("t", t);
         if (t <= 0f)
         {
             _camera.localPosition = new Vector3(
