@@ -2,20 +2,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using XephTools;
 
-public enum EnemyState { Idle, Patrol, Attack, Dead, XtraDead }
-
 [RequireComponent(typeof(CharacterController))]
-public class EnemyMelee : MonoBehaviour
+public class EnemyRanged : MonoBehaviour
 {
 
     [SerializeField] float _patrolSpeed = 3f;
-    [SerializeField] float _seekSpeed = 5f;
     [SerializeField] float _detectionRange = 5f;
     [SerializeField] float _idleTime = 3f;
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
-    [SerializeField] LayerMask _wallcheckMask;
 
     [Header("References")]
     [SerializeField] Transform _camera;
@@ -24,12 +20,12 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] UnityEvent onAttack;
 
     CharacterController _charController;
-    StateMachine<EnemyMelee> _stateMachine;
+    ProjectilePool _projectilePool;
+    StateMachine<EnemyRanged> _stateMachine;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
 
     public float patrolSpeed { get { return _patrolSpeed; } }
-    public float seekSpeed { get { return _seekSpeed; } }
     public float idleTime { get { return _idleTime; } }
     public float patrolArriveDistance { get {  return _patrolArriveDistance; } }
     public float attackRate { get {  return _attackRate; } }
@@ -38,28 +34,7 @@ public class EnemyMelee : MonoBehaviour
     {
         get
         {
-            float p = (_camera.position - transform.position).sqrMagnitude;
-            float w = float.MaxValue;
-            RaycastHit[] hitInfo = Physics.RaycastAll(transform.position, (_camera.position - transform.position).normalized, _detectionRange, _wallcheckMask);
-            DebugMonitor.UpdateValue("hit length", hitInfo.Length);
-            if (hitInfo.Length == 0)
-            {
-                DebugMonitor.UpdateValue("p", p);
-                DebugMonitor.UpdateValue("w", "null");
-                return p <= _detectionRange * _detectionRange;
-            }
-            string objNames = "";
-            foreach (RaycastHit hit in hitInfo)
-            {
-                objNames += hit.transform.name + "/";
-                if (hit.distance < w)
-                    w = hit.distance;
-            }
-            w *= w;
-            DebugMonitor.UpdateValue("object Names", objNames);
-            DebugMonitor.UpdateValue("p", p);
-            DebugMonitor.UpdateValue("w", w);
-            return p <= _detectionRange * _detectionRange &&  w > p;
+            return (_camera.position - transform.position).sqrMagnitude <= _detectionRange * _detectionRange;
         }
     }
     public Vector3 moveTarget {  get { return _patrolPoints[_moveTarget].position; } }
@@ -70,13 +45,14 @@ public class EnemyMelee : MonoBehaviour
     private void Awake()
     {
         _charController = GetComponent<CharacterController>();
+        _projectilePool = GetComponent<ProjectilePool>();
 
-        _stateMachine = new StateMachine<EnemyMelee>(this);
-        _stateMachine.AddState<MeleeIdle>();
-        _stateMachine.AddState<MeleePatrol>();
-        _stateMachine.AddState<MeleeAttack>();
-        _stateMachine.AddState<MeleeDead>();
-        _stateMachine.AddState<MeleeXtraDead>();
+        _stateMachine = new StateMachine<EnemyRanged>(this);
+        _stateMachine.AddState<RangedIdle>();
+        _stateMachine.AddState<RangedPatrol>();
+        _stateMachine.AddState<RangedAttack>();
+        _stateMachine.AddState<RangedDead>();
+        _stateMachine.AddState<RangedXtraDead>();
         _stateMachine.ChangeState((int)EnemyState.Idle);
 
     }

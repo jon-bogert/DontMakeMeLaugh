@@ -68,7 +68,7 @@ public class HealthFace : MonoBehaviour
     private void Swap()
     {        
         _swapTimer = _swapTime;
-        Debug.Log(_arrayPair);
+        //Debug.Log(_arrayPair);
         if (_arrayPair % 2 == 0)
         {
             _face.sprite = _faceSprites[_arrayPair + 1];
