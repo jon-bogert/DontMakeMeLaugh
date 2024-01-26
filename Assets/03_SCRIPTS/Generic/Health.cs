@@ -14,13 +14,29 @@ public class Health : MonoBehaviour
     [SerializeField] UnityEvent _onDeath;
     [SerializeField] UnityEvent _onDamaged;
 
+    private float timer;
+    private float deathTimer = 2;
+    private bool dead = false;
+
     public float health { get { return _health; } }
 
     private void Start()
     {
+        timer = deathTimer;
         if (_healthText != null)
         {
             UpdateUI();
+        }
+    }
+    private void Update()
+    {
+        if (dead)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -34,6 +50,7 @@ public class Health : MonoBehaviour
         {
             Debug.Log(gameObject.name + ": has died");
             _onDeath?.Invoke();
+            dead = true;
         }
         if (_healthText != null)
         {
