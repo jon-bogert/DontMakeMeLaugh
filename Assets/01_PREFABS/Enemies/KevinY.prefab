@@ -202,6 +202,11 @@ MonoBehaviour:
   _patrolPoints:
   - {fileID: 5201891773409235990}
   - {fileID: 5201891773245239988}
+  _wallcheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _attackTexture: {fileID: 2800000, guid: 3d46625421c32f646ac8768a3d345268, type: 3}
+  _deadTexture: {fileID: 2800000, guid: 20b49809558d4384483061474d521d27, type: 3}
   _camera: {fileID: 0}
   onAttack:
     m_PersistentCalls:

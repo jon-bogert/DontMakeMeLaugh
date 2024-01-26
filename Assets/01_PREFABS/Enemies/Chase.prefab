@@ -206,6 +206,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _attackTexture: {fileID: 2800000, guid: d6b72d174aae9da4d897674fa59b1024, type: 3}
+  _deadTexture: {fileID: 2800000, guid: 48e0a63aae962e548bf753537952b8b8, type: 3}
   _camera: {fileID: 0}
   onAttack:
     m_PersistentCalls:
