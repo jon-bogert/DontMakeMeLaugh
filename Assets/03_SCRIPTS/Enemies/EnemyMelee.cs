@@ -14,6 +14,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] float _idleTime = 3f;
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
+    [SerializeField] float _healAmount = 10f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
     [SerializeField] LayerMask _wallcheckMask;
 
@@ -28,6 +29,7 @@ public class EnemyMelee : MonoBehaviour
 
     CharacterController _charController;
     StateMachine<EnemyMelee> _stateMachine;
+    Health _playerHealth;
     Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
@@ -88,6 +90,10 @@ public class EnemyMelee : MonoBehaviour
         _material = GetComponentInChildren<MeshRenderer>().material;
         if (_material == null)
             Debug.LogError("Enemy Melee \"" + name + "\" was unable find it's material");
+
+        _playerHealth = FindObjectOfType<PlayerMovement>().GetComponent<Health>();
+        if (_playerHealth == null)
+            Debug.LogWarning("EnemyMelee could not find Player's health component");
     }
 
     private void Update()
@@ -138,7 +144,7 @@ public class EnemyMelee : MonoBehaviour
 
     internal void SanityBoost()
     {
-        Debug.Log(name + ": Sanity Boost");
+        _playerHealth.Heal(_healAmount);
     }
 
     public void Kill()
