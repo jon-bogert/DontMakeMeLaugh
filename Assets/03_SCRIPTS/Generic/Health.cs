@@ -63,4 +63,19 @@ public class Health : MonoBehaviour
         _healthText.text = _health.ToString();
     }
    
+    public void Heal(float amount)
+    {
+        if (_health >= _healthMax)
+            return;
+
+        //TODO Play Sound
+            _health += amount;
+        if (_health > _healthMax)
+            _health = _healthMax;
+
+        if (_healthText != null)
+        {
+            UpdateUI();
+        }
+    }
 }

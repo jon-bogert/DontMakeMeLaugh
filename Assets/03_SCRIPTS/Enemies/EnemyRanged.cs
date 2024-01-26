@@ -11,6 +11,7 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] float _idleTime = 3f;
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
+    [SerializeField] float _healAmount = 10f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
     [SerializeField] LayerMask _wallcheckMask;
 
@@ -25,6 +26,7 @@ public class EnemyRanged : MonoBehaviour
 
     CharacterController _charController;
     ProjectilePool _projectilePool;
+    Health _playerHealth;
     StateMachine<EnemyRanged> _stateMachine;
     Material _material;
     int _moveTarget = 0;
@@ -87,6 +89,10 @@ public class EnemyRanged : MonoBehaviour
         _material = GetComponentInChildren<MeshRenderer>().material;
         if (_material == null)
             Debug.LogError("Enemy Ranged \"" + name + "\" was unable find it's material");
+
+        _playerHealth = FindObjectOfType<PlayerMovement>().GetComponent<Health>();
+        if (_playerHealth == null)
+            Debug.LogWarning("EnemyMelee could not find Player's health component");
     }
 
     private void Update()
@@ -136,7 +142,7 @@ public class EnemyRanged : MonoBehaviour
 
     internal void SanityBoost()
     {
-        Debug.Log(name + ": Sanity Boost");
+        _playerHealth.Heal(_healAmount);
     }
 
     public void Kill()
