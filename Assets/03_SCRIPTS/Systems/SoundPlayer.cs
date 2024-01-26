@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,7 +8,7 @@ public class MultiAudioClip
     public AudioClip[] bank;
     int last = -1;
     [Range(0f, 1f)]
-    public float volume = 1f;
+    public float volume = .75f;
     public AudioClip GetRandomClip()
     {
         int index = -1;
@@ -23,7 +22,8 @@ public class MultiAudioClip
 }
 
 [RequireComponent(typeof(AudioSource))]
-public class SoundManager : MonoBehaviour
+[RequireComponent(typeof(Bitcrusher))]
+public class SoundPlayer : MonoBehaviour
 {
     [System.Serializable]
     private class _AudioClip
@@ -31,7 +31,7 @@ public class SoundManager : MonoBehaviour
         public string key;
         public AudioClip clip;
         [Range(0, 1)]
-        public float volume = 1f;
+        public float volume = .75f;
     }
 
     [System.Serializable]
@@ -46,7 +46,7 @@ public class SoundManager : MonoBehaviour
     {
         public AudioClip clip;
         [Range(0, 1)]
-        public float volume = 1f;
+        public float volume = .75f;
     }
 
     public enum Bank { Single, Multi };
@@ -84,11 +84,16 @@ public class SoundManager : MonoBehaviour
 
         if (_single.ContainsKey(key))
         {
-            _source.PlayOneShot(_single[key].clip, _single[key].volume);
+            _source.clip = _single[key].clip;
+            _source.volume = _single[key].volume;
+            _source.Play();
         }
         else if (_multi.ContainsKey(key))
         {
-            _source.PlayOneShot(_multi[key].GetRandomClip(), _multi[key].volume);
+            AudioClip clip = _multi[key].GetRandomClip();
+            _source.clip = clip;
+            _source.volume = _multi[key].volume;
+            _source.Play();
         }
         else
         {
@@ -100,7 +105,9 @@ public class SoundManager : MonoBehaviour
     {
         if (bank == Bank.Single && _single.ContainsKey(key))
         {
-            _source.PlayOneShot(_single[key].clip, _single[key].volume);
+            _source.clip = _single[key].clip;
+            _source.volume = _single[key].volume;
+            _source.Play();
             return;
         }
         else if (bank == Bank.Single)
@@ -111,7 +118,10 @@ public class SoundManager : MonoBehaviour
 
         if (bank == Bank.Multi && _multi.ContainsKey(key))
         {
-            _source.PlayOneShot(_multi[key].GetRandomClip(), _multi[key].volume);
+            AudioClip clip = _multi[key].GetRandomClip();
+            _source.clip = clip;
+            _source.volume = _multi[key].volume;
+            _source.Play();
         }
         else
         {

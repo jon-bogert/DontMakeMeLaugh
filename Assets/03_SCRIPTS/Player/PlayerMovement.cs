@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     float _returnFrom = 1.5f;
     float _returnTimer = 0;
     bool _isGrounded = false;
+    bool _goingDown = false;
 
     CharacterController _charController;
 
