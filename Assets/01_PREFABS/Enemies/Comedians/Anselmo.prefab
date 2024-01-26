@@ -227,10 +227,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolSpeed: 3
-  _detectionRange: 5
+  _detectionRange: 9
   _idleTime: 3
   _patrolArriveDistance: 1
-  _attackRate: 2
+  _attackRate: 1
   _patrolPoints: []
   _wallcheckMask:
     serializedVersion: 2
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f611d2700bd0b40852781101c08646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
-  _healthMax: 10
+  _health: 30
+  _healthMax: 30
   _healthText: {fileID: 0}
   _onDeath:
     m_PersistentCalls:
