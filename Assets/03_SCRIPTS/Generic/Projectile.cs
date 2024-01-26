@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         Health health = collision.transform.GetComponent<Health>();
         if (health == null)

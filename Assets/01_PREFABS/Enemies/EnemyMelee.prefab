@@ -202,6 +202,9 @@ MonoBehaviour:
   _patrolPoints:
   - {fileID: 5201891773409235990}
   - {fileID: 5201891773245239988}
+  _wallcheckMask:
+    serializedVersion: 2
+    m_Bits: 55
   _camera: {fileID: 0}
   onAttack:
     m_PersistentCalls:

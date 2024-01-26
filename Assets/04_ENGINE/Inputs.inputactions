@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
+                    "name": "LookGamepad",
                     "type": "Value",
                     "id": "536a92c9-d4c6-4591-958e-249cd66b9af3",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LookMouse",
+                    "type": "Value",
+                    "id": "944a5146-39af-47fc-93d7-09dc3942a983",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -129,23 +138,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a3db292f-79f6-48a2-9507-5023d2fd9c94",
-                    "path": "<Mouse>/delta/x",
-                    "interactions": "",
-                    "processors": "Scale(factor=0.075)",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "43796db2-1808-4b8b-a00a-4fb96bed2ea5",
                     "path": "<Gamepad>/rightStick/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "LookGamepad",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -256,6 +254,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79014e22-a5e3-44a1-aaa2-33ac6af896cd",
+                    "path": "<Mouse>/delta/x",
+                    "interactions": "",
+                    "processors": "Scale",
+                    "groups": "",
+                    "action": "LookMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

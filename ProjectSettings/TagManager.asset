@@ -19,8 +19,8 @@ TagManager:
   - CollidableProps
   - 
   - 
-  - 
-  - 
+  - PlayerInteractor
+  - FX
   - 
   - 
   - 

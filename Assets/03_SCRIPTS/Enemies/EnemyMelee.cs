@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using XephTools;
@@ -16,6 +15,10 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
+    [SerializeField] LayerMask _wallcheckMask;
+
+    [SerializeField] Texture _attackTexture;
+    [SerializeField] Texture _deadTexture;
 
     [Header("References")]
     [SerializeField] Transform _camera;
@@ -25,6 +28,7 @@ public class EnemyMelee : MonoBehaviour
 
     CharacterController _charController;
     StateMachine<EnemyMelee> _stateMachine;
+    Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
 
@@ -38,7 +42,20 @@ public class EnemyMelee : MonoBehaviour
     {
         get
         {
-            return (_camera.position - transform.position).sqrMagnitude <= _detectionRange * _detectionRange;
+            float p = (_camera.position - transform.position).sqrMagnitude;
+            float w = float.MaxValue;
+            RaycastHit[] hitInfo = Physics.RaycastAll(transform.position, (_camera.position - transform.position).normalized, _detectionRange, _wallcheckMask);
+            if (hitInfo.Length == 0)
+            {
+                return p <= _detectionRange * _detectionRange;
+            }
+            foreach (RaycastHit hit in hitInfo)
+            {
+                if (hit.distance < w)
+                    w = hit.distance;
+            }
+            w *= w;
+            return p <= _detectionRange * _detectionRange &&  w > p;
         }
     }
     public Vector3 moveTarget {  get { return _patrolPoints[_moveTarget].position; } }
@@ -57,7 +74,6 @@ public class EnemyMelee : MonoBehaviour
         _stateMachine.AddState<MeleeDead>();
         _stateMachine.AddState<MeleeXtraDead>();
         _stateMachine.ChangeState((int)EnemyState.Idle);
-
     }
     private void Start()
     {
@@ -68,12 +84,15 @@ public class EnemyMelee : MonoBehaviour
         {
             _patrolPoints[i].SetParent(null);
         }
+
+        _material = GetComponentInChildren<MeshRenderer>().material;
+        if (_material == null)
+            Debug.LogError("Enemy Melee \"" + name + "\" was unable find it's material");
     }
 
     private void Update()
     {
         _stateMachine.Update(Time.deltaTime);
-        DebugMonitor.UpdateValue("Enemy State", (EnemyState)_stateMachine.currentState);
         _charController.Move(_velocity * Time.deltaTime);
     }
 
@@ -96,6 +115,14 @@ public class EnemyMelee : MonoBehaviour
     internal void SetVelocity(Vector3 veclocity)
     {
         _velocity = veclocity;
+    }
+
+    internal void SetAttackTexture()
+    {
+        if (_attackTexture != null)
+            _material.SetTexture("_MainTex", _attackTexture);
+        else
+            Debug.LogWarning("Enemy Melee \"" + name + "\" Attack texture was null");
     }
 
     internal void Attack()
@@ -121,6 +148,18 @@ public class EnemyMelee : MonoBehaviour
             ChangeState(EnemyState.XtraDead);
             return;
         }
+        if (_deadTexture != null)
+        {
+            _material.SetTexture("_MainTex", _deadTexture);
+            _material.SetTexture("_LeftTex", _deadTexture);
+            _material.SetTexture("_RightTex", _deadTexture);
+            _material.SetTexture("_BackTex", _deadTexture);
+        }
+        else
+        {
+            Debug.LogWarning("Enemy Melee \"" + name + "\" Dead texture was null");
+        }
+
         ChangeState(EnemyState.Dead);
     }
 }
