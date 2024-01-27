@@ -33,6 +33,8 @@ public class PlayerDamageFlash : MonoBehaviour
                 return;
             }
             val = Mathf.Lerp(0f, 1f, _timer / _timeUp);
+            SetColor(val);
+            _timer += Time.unscaledDeltaTime;
         }
         else // State Down
         {
@@ -44,10 +46,10 @@ public class PlayerDamageFlash : MonoBehaviour
                 return;
             }
             val = Mathf.Lerp(1f, 0f, _timer / _timeDown);
+            SetColor(val);
+            _timer += Time.deltaTime;
         }
 
-        SetColor(val);
-        _timer += Time.deltaTime;
     }
 
     private void SetColor(float val)

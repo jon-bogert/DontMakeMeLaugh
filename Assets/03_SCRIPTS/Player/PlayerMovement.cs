@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void LookMouse(float axis)
     {
-        transform.Rotate(Vector3.up, axis * _lookSpeed * 0.001f * _mouseSensitivity);
+        transform.Rotate(Vector3.up, axis * _lookSpeed * 0.001f * _mouseSensitivity * Time.timeScale);
     }
 
     private void LookGamepad(float axis)
