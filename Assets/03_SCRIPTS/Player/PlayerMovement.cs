@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform _camera;
+    [SerializeField] GameObject _gun;
 
     [Header("Inputs")]
     [SerializeField] InputActionReference _moveInput;
