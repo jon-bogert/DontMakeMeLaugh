@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 7480583643351057625}
   - component: {fileID: 1436990865954773683}
   - component: {fileID: 5650015813765471079}
+  - component: {fileID: 7406750617378920249}
+  - component: {fileID: 4207482068367960660}
+  - component: {fileID: 1520597922384776452}
+  - component: {fileID: 4416644068579912570}
   m_Layer: 9
   m_Name: Hurtbox
   m_TagString: Untagged
@@ -59,48 +63,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 10
---- !u!1 &4657544322719651226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3674039841529986078}
-  - component: {fileID: 1365608464569672384}
-  - component: {fileID: 2677376743507672247}
-  - component: {fileID: 8086908154121331707}
-  - component: {fileID: 8339034361828106806}
-  m_Layer: 8
-  m_Name: AttackSoundPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3674039841529986078
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657544322719651226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5201891772124829280}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1365608464569672384
+--- !u!82 &7406750617378920249
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657544322719651226}
+  m_GameObject: {fileID: 4618874816829678270}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -112,7 +81,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 50
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -190,13 +159,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2677376743507672247
+--- !u!114 &4207482068367960660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657544322719651226}
+  m_GameObject: {fileID: 4618874816829678270}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eaf40bb4a5b3504d8172d80aed2d7c6, type: 3}
@@ -204,13 +173,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 256
   sampleRate: 8000
---- !u!114 &8086908154121331707
+--- !u!114 &1520597922384776452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657544322719651226}
+  m_GameObject: {fileID: 4618874816829678270}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83931f03144cf6a468bf947eee192a4d, type: 3}
@@ -228,13 +197,13 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 5557c17f9b4a0a54ab43c2a91f1862a5, type: 3}
       - {fileID: 8300000, guid: 96da247707211754e89b517b012a7f4e, type: 3}
       volume: 1
---- !u!114 &8339034361828106806
+--- !u!114 &4416644068579912570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657544322719651226}
+  m_GameObject: {fileID: 4618874816829678270}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3f40d6acbf36e04ba87edc7f7b54b4e, type: 3}
@@ -281,7 +250,6 @@ Transform:
   - {fileID: 5201891773409235990}
   - {fileID: 5201891773245239988}
   - {fileID: 7480583643351057625}
-  - {fileID: 3674039841529986078}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.997, z: 0}
@@ -584,7 +552,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 1d7b3de5274ca5942ba4244482eb1611, type: 3}
       - {fileID: 8300000, guid: 2efc09779c90bdf40ab919c5c0e67a94, type: 3}
       - {fileID: 8300000, guid: 70c21ec7fe66ed04a8fd4903dd35ee6d, type: 3}
-      volume: 0.33
+      volume: 0.5
 --- !u!114 &-741281475958179320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stepTime: 0.2
+  attacking: 0
 --- !u!1 &5201891773245239991
 GameObject:
   m_ObjectHideFlags: 0

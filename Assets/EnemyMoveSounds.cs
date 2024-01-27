@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyMoveSounds : MonoBehaviour
 {
     [SerializeField] float _stepTime = 0.2f;
+    [SerializeField] public bool attacking = false;
 
-    float timer = 0f;
-
+    float _timer = 0f;
     SoundPlayer _soundPlayer;
     EnemyMelee _enemyMelee;
     EnemyRanged _enemyRanged;
@@ -33,12 +33,12 @@ public class EnemyMoveSounds : MonoBehaviour
     {
         if (_enemyMelee != null)
         {
-            if ((_enemyMelee.currentState == EnemyState.Patrol) || (_enemyMelee.currentState == EnemyState.Attack) && (_enemyMelee.isPlayerDetected)
+            if ((_enemyMelee.currentState == EnemyState.Patrol) || (_enemyMelee.currentState == EnemyState.Attack) && !attacking)
             {
-                timer += Time.deltaTime;
-                if (timer > _stepTime)
+                _timer += Time.deltaTime;
+                if (_timer > _stepTime)
                 {
-                    timer = 0f;
+                    _timer = 0f;
                     _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
                 }
             }
@@ -47,10 +47,10 @@ public class EnemyMoveSounds : MonoBehaviour
         {
             if ((_enemyRanged.currentState == EnemyState.Patrol) || (_enemyRanged.currentState == EnemyState.Attack))
             {
-                timer += Time.deltaTime;
-                if (timer > _stepTime)
+                _timer += Time.deltaTime;
+                if (_timer > _stepTime)
                 {
-                    timer = 0f;
+                    _timer = 0f;
                     _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
                 }
             }
