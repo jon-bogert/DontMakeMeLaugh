@@ -27,6 +27,7 @@ public class EnemyMelee : MonoBehaviour
     [Header("Events")]
     [SerializeField] UnityEvent onAttack;
 
+    SoundPlayer _soundPlayer;
     CharacterController _charController;
     StateMachine<EnemyMelee> _stateMachine;
     Health _playerHealth;
@@ -70,6 +71,7 @@ public class EnemyMelee : MonoBehaviour
     private void Awake()
     {
         _charController = GetComponent<CharacterController>();
+        _soundPlayer = GetComponent<SoundPlayer>();
 
         _stateMachine = new StateMachine<EnemyMelee>(this);
         _stateMachine.AddState<MeleeIdle>();
@@ -150,7 +152,7 @@ public class EnemyMelee : MonoBehaviour
 
     internal void PlayDeathLine()
     {
-        Debug.Log(name + ": Play death line");
+        _soundPlayer.Play("death", SoundPlayer.Bank.Single);
     }
 
     internal void OnXtraDead()

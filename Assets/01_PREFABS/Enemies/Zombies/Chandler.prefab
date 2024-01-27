@@ -340,7 +340,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83931f03144cf6a468bf947eee192a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleSoundBank: []
+  singleSoundBank:
+  - key: death
+    clip: {fileID: 8300000, guid: 63f3a1c20b70ad4449a2ba03b5114741, type: 3}
+    volume: 1
   multiSoundBank:
   - key: step
     bank:

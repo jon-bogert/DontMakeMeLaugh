@@ -114,14 +114,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 50
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eaf40bb4a5b3504d8172d80aed2d7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 256
-  sampleRate: 8000
+  resolution: 512
+  sampleRate: 12000
 --- !u!114 &5747514790594872078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   singleSoundBank:
   - key: pickup
     clip: {fileID: 8300000, guid: 7bdeedc7aa9a4914c9829d717f9ed6a2, type: 3}
-    volume: 0.75
+    volume: 0.9
   multiSoundBank: []
 --- !u!1 &4498938108245083972
 GameObject:
