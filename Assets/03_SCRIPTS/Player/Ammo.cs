@@ -64,6 +64,9 @@ public class Ammo : MonoBehaviour
 
     public void Fire()
     {
+        if (GODMODE.isGodModeEnabled)
+            return;
+
         _clip -= 1;
         UpdateUI();
     }
