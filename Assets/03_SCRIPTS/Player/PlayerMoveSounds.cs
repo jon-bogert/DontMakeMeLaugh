@@ -24,9 +24,9 @@ public class PlayerMoveSounds : MonoBehaviour
         float time = (_playerMovement.isSprinting) ? _sprintStepTime : _stepTime;
         timer += Time.deltaTime;
         if (timer > time)
-        {
-            timer = 0f;
+        {            
             _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
+            timer = 0f;            
         }
     }
 

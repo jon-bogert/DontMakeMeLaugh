@@ -165,10 +165,10 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 25
+  Priority: 140
   DopplerLevel: 1
-  MinDistance: 100
-  MaxDistance: 1000
+  MinDistance: 10
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 5c1cb372c3f79684eafa219647354deb, type: 3}
       - {fileID: 8300000, guid: 57be8545816ed6648b26af0e4e1f59b4, type: 3}
       - {fileID: 8300000, guid: 16aa52a8dcbc8ec43b91b6435ef6b20e, type: 3}
-      volume: 0.9
+      volume: 0.66
   - key: splat_enemy
     bank:
       bank:
@@ -297,4 +297,4 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 50b3cc0100245204c9389afb41c2a752, type: 3}
       - {fileID: 8300000, guid: 73699c86013fbb84898764711c9dd209, type: 3}
       - {fileID: 8300000, guid: 34c827f9b2c00ab43b8e0aea54a0207b, type: 3}
-      volume: 0.9
+      volume: 0.66

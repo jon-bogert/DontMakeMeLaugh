@@ -216,6 +216,7 @@ MonoBehaviour:
   _attackTexture: {fileID: 2800000, guid: fb3740eb39d99b54a81f436206b5097b, type: 3}
   _deadTexture: {fileID: 2800000, guid: a6dbba0b3319bc949b466baddaca586a, type: 3}
   _camera: {fileID: 0}
+  _dialougeSoundPlayer: {fileID: 0}
   onAttack:
     m_PersistentCalls:
       m_Calls:
@@ -295,7 +296,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 168
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

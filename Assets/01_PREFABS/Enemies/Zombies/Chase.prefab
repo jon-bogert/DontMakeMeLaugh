@@ -53,7 +53,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 25
+  Priority: 168
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -160,11 +160,26 @@ MonoBehaviour:
   singleSoundBank:
   - key: death
     clip: {fileID: 8300000, guid: 6acf318dda7d79a409b3f04062423b46, type: 3}
-    volume: 1
+    volume: 0.5
   - key: joke
     clip: {fileID: 8300000, guid: 7ef356fe4b4bedd4ca8af01c931cc5c5, type: 3}
-    volume: 1
-  multiSoundBank: []
+    volume: 0.5
+  multiSoundBank:
+  - key: hit
+    bank:
+      bank:
+      - {fileID: 8300000, guid: b76bdc91fe28bcb40b595cd1e0eb7128, type: 3}
+      - {fileID: 8300000, guid: 6c2378086e7483248af2557679d18f21, type: 3}
+      - {fileID: 8300000, guid: 7659a4abf0ba2ba4384fb90cf51fe74f, type: 3}
+      - {fileID: 8300000, guid: d5062ebafa3b4d244ad48d61eb82f88f, type: 3}
+      - {fileID: 8300000, guid: e83f41fa4997eed4289931f9b80cb2a2, type: 3}
+      - {fileID: 8300000, guid: 2bc36c56baea0ea4288b9dd27b32f705, type: 3}
+      - {fileID: 8300000, guid: 9730f516b36c910469ff01a818f45fd1, type: 3}
+      - {fileID: 8300000, guid: 892f0d533f2450a48a9e8ea3fe9152b6, type: 3}
+      - {fileID: 8300000, guid: 8cc079f135aa99547b38351cf7da175f, type: 3}
+      - {fileID: 8300000, guid: 239e1b6a63a5ca640a4cef240bc70450, type: 3}
+      - {fileID: 8300000, guid: b742dee491fb8cc4ab4869892801e671, type: 3}
+      volume: 0.5
 --- !u!114 &5067954956131712632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,6 +591,7 @@ MonoBehaviour:
   _health: 20
   _healthMax: 20
   _healthText: {fileID: 0}
+  _soundPlayer: {fileID: 7972057076795145699}
   onDeath:
     m_PersistentCalls:
       m_Calls:
@@ -624,7 +640,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 168
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

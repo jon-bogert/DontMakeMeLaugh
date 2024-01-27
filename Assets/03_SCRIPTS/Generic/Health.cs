@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 
     [Header("References")]
     [SerializeField] TextMeshProUGUI _healthText;
+    [SerializeField] SoundPlayer _soundPlayer;
 
     [Header("Events")]
     public UnityEvent onDeath;
@@ -40,6 +41,7 @@ public class Health : MonoBehaviour
         Debug.Log(gameObject.name + ": has taken damage");
         _onDamaged?.Invoke();
         _health -= damage;
+        _soundPlayer.Play("hit", SoundPlayer.Bank.Multi);
         _health = Mathf.Clamp(_health, 0, _healthMax);
         if (_health <= 0)
         {
