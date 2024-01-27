@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _bobRateSprinting = 15f;
     [SerializeField] float _bobHeight = 0.1f;
     [SerializeField] float _bobReturnSpeed = 0.25f;
-    [SerializeField] float _gunBobAmount = 100f;
+    [SerializeField] float _gunBobAmount = 0.5f;
 
     [Header("Looking")]
     [SerializeField] float _lookSpeed = 1f;
@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     float _cameraHeight = 1.5f;
     float _t = 0f;
     float _returnFrom = 1.5f;
+    Vector3 _returnFromGun = Vector3.zero;
     float _returnTimer = 0;
     bool _isGrounded = false;
     Vector3 _gunPos = Vector3.zero;
@@ -117,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
                 _returnTimer = _bobReturnSpeed;
                 _returnFrom = _camera.localPosition.y;
                 _gunReturnFrom = _gun.transform.localPosition;
+
             }
             _isMoving = false;
         }

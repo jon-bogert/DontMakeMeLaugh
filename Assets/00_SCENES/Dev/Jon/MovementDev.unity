@@ -714,7 +714,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1062380
+  m_Name: pb_Mesh-1106272
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2373,7 +2373,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1062344
+  m_Name: pb_Mesh-1106236
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2931,7 +2931,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1062356
+  m_Name: pb_Mesh-1106248
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3289,7 +3289,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1062368
+  m_Name: pb_Mesh-1106260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3941,6 +3941,11 @@ PrefabInstance:
       propertyPath: _gun
       value: 
       objectReference: {fileID: 1175797118}
+    - target: {fileID: 667504818386603510, guid: 7e24a09b451a19a4dbc316807c5b05ad,
+        type: 3}
+      propertyPath: _gunBobAmount
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 667504818386603511, guid: 7e24a09b451a19a4dbc316807c5b05ad,
         type: 3}
       propertyPath: m_Name
