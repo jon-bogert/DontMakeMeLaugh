@@ -33,6 +33,8 @@ public class EnemyMelee : MonoBehaviour
     Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
+    
+    public Vector3 velocityOverride = Vector3.zero;
 
     public float patrolSpeed { get { return _patrolSpeed; } }
     public float seekSpeed { get { return _seekSpeed; } }
@@ -99,7 +101,16 @@ public class EnemyMelee : MonoBehaviour
     private void Update()
     {
         _stateMachine.Update(Time.deltaTime);
-        _charController.Move(_velocity * Time.deltaTime);
+        if (velocityOverride != Vector3.zero)
+        {
+            _charController.Move(velocityOverride * Time.deltaTime);
+            velocityOverride = Vector3.zero;
+        }
+        else
+        {
+            if (_charController.enabled)
+                _charController.Move(_velocity * Time.deltaTime);
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -142,8 +153,9 @@ public class EnemyMelee : MonoBehaviour
         Debug.Log(name + ": Play death line");
     }
 
-    internal void SanityBoost()
+    internal void OnXtraDead()
     {
+        _charController.enabled = false;
         _playerHealth.Heal(_healAmount);
     }
 
