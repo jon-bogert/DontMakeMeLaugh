@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925531495783510283}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bob Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 376707577561656394}
   - component: {fileID: 4147905915389140694}
   - component: {fileID: 5747514790594872078}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AmmoPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 2269275326612342434}
   - component: {fileID: 1464564246791302307}
   - component: {fileID: 6089076434345915565}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581961975714993946}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bob Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
