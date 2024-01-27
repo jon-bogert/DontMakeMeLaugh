@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     float _returnTimer = 0;
     bool _isGrounded = false;
     Vector3 _gunPos = Vector3.zero;
+    Vector3 _gunReturnFrom = Vector3.zero;
 
     CharacterController _charController;
 
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
 
         if (_gun != null)
-            _gunPos = _gun.transform.position;
+            _gunPos = _gun.transform.localPosition;
     }
 
     private void Update()
@@ -115,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _returnTimer = _bobReturnSpeed;
                 _returnFrom = _camera.localPosition.y;
+                _gunReturnFrom = _gun.transform.localPosition;
             }
             _isMoving = false;
         }
@@ -241,17 +243,18 @@ public class PlayerMovement : MonoBehaviour
             if (_gun != null)
             {
                 float gunY = _gunPos.y + _gunBobAmount * 5f * Mathf.Sin(_t - 0.1f);
-                _gun.transform.position = new Vector3(
-                    _gun.transform.position.x,
+                float gunX = _gunPos.x + _gunBobAmount * 5f * Mathf.Sin(_t * 0.5f);
+                _gun.transform.localPosition = new Vector3(
+                    gunX,
                     gunY,
-                    _gun.transform.position.z);
+                    _gun.transform.localPosition.z);
             }
 
             float rate = (_allowSprint && _sprintInput.action.IsPressed()) ? _bobRateSprinting : _bobRate;
             _t += Time.deltaTime * rate;
 
-            while (_t > 2 * Mathf.PI)
-                _t -= 2 * Mathf.PI;
+            while (_t > 4 * Mathf.PI)
+                _t -= 4 * Mathf.PI;
             return;
         }
 
@@ -266,6 +269,7 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 _cameraHeight,
                 _camera.localPosition.z);
+            _gun.transform.localPosition = _gunPos;
             return;
         }
 
@@ -274,6 +278,9 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 y,
                 _camera.localPosition.z);
+
+        Vector3 gPos = Vector3.Lerp(_gunReturnFrom, _gunPos, t);
+        _gun.transform.localPosition = gPos;
 
     }
 }
