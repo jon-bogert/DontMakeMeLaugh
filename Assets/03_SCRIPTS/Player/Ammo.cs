@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class Ammo : MonoBehaviour
 {
     [SerializeField] float _ammo;
-    [SerializeField] float _clip;  
+    [SerializeField] float _clip;
+
+    [SerializeField] float _reloadDelay;
 
     [SerializeField] float _clipMax;    
     [SerializeField] float _ammoMax;
@@ -19,6 +21,9 @@ public class Ammo : MonoBehaviour
     [Header("Inputs")]
     [SerializeField] InputActionReference _reloadInput;
 
+    bool _tryReload;
+    float _timer;
+
     public float total { get { return  _ammo; } }
     public float clip { get { return  _clip; } }
     public bool isClipEmpty { get {  return _clip == 0; } }
@@ -30,10 +35,21 @@ public class Ammo : MonoBehaviour
 
     private void Update()
     {
-        if (_clip == 0)
+        if (_clip <= 0)
         {
-            Reload();
+            TryReload();
         }
+        if (_tryReload)
+        {
+            _timer -= Time.deltaTime;
+            if (_timer <= 0)
+            {
+                _timer = _reloadDelay;
+                _tryReload = false;
+                Reload();
+            }
+        }
+       
     }
 
     private void OnDestroy()
@@ -103,9 +119,13 @@ public class Ammo : MonoBehaviour
             _leaf.gameObject.SetActive(false);
         }
     }
+    private void TryReload()
+    {
+        _tryReload = true;
+    }
     
     private void OnReloadInput(InputAction.CallbackContext ctx)
     {
-        Reload();
+        TryReload();
     }
 }
