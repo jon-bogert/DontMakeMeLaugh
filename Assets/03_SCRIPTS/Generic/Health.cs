@@ -32,6 +32,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        //If it's player health and GODMODE is on, take no damage
+        if (GODMODE.isGodModeEnabled && GetComponent<PlayerMovement>() != null)
+        {
+            return;
+        }
+
         if (dead)
         {
             onDeath.Invoke();
