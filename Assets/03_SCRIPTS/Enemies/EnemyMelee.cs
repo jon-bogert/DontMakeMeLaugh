@@ -23,10 +23,11 @@ public class EnemyMelee : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform _camera;
+    [SerializeField] SoundPlayer _dialougeSoundPlayer;
 
     [Header("Events")]
     [SerializeField] UnityEvent onAttack;
-
+    
     CharacterController _charController;
     StateMachine<EnemyMelee> _stateMachine;
     Health _playerHealth;
@@ -69,7 +70,7 @@ public class EnemyMelee : MonoBehaviour
 
     private void Awake()
     {
-        _charController = GetComponent<CharacterController>();
+        _charController = GetComponent<CharacterController>();        
 
         _stateMachine = new StateMachine<EnemyMelee>(this);
         _stateMachine.AddState<MeleeIdle>();
@@ -150,7 +151,7 @@ public class EnemyMelee : MonoBehaviour
 
     internal void PlayDeathLine()
     {
-        Debug.Log(name + ": Play death line");
+        _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
     }
 
     internal void OnXtraDead()
