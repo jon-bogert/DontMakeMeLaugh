@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ammo: 99
   _clip: 3
+  _reloadDelay: 2
   _clipMax: 3
   _ammoMax: 99
   _ammoText: {fileID: 7883939099249934711}
