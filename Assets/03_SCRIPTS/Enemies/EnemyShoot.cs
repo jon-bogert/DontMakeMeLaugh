@@ -5,9 +5,15 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] float _projectileSpeed = 10f;
     [SerializeField] Transform _firePoint;
+    [SerializeField] ComedianAttackSounds _attackSoud;
 
     PlayerMovement _player;
     ProjectilePool _projectilePool;
+    bool _setupSaid = false;
+    float _setupLength;
+    bool _firing = false;
+    float _timer = 0;
+    bool _firstShot = false;
 
     private void Awake()
     {
@@ -16,16 +22,55 @@ public class EnemyShoot : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<PlayerMovement>();
+        _player = FindObjectOfType<PlayerMovement>();       
         if (_player == null)
             Debug.LogError("EnemyShoot -> Could not find Player in scene");
     }
 
     public void Fire()
     {
-        Vector3 velocity = CalcVelocity();;
+        _setupLength = _attackSoud.setupLength;
+        if (!_firstShot)
+        {
+            _firing = true;
+            _firstShot = true;
+            _attackSoud.PlaySetup();
+        }
 
-        _projectilePool.FireNext(_firePoint.position, velocity);
+        else if (_setupSaid)
+        {
+            _firing = true;
+        }
+        
+    }
+
+    private void Update()
+    {
+       
+        
+        if (_firing && !_setupSaid && _firstShot)
+        {
+            
+            _timer += Time.deltaTime;            
+            Vector3 velocity = CalcVelocity();                   
+                          
+            if (_timer > _setupLength + 0.1f)
+            {
+                _projectilePool.FireNext(_firePoint.position, velocity);
+                _setupSaid = true;
+                _firing = false;
+            }           
+        }
+        else if (_firing && _setupSaid)
+        {
+            Vector3 velocity = CalcVelocity(); ;
+            _projectilePool.FireNext(_firePoint.position, velocity);
+            _firing = false;            
+            
+            
+        }
+        
+        
     }
 
     private Vector3 CalcVelocity()
