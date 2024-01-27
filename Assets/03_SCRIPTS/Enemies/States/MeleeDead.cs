@@ -32,7 +32,7 @@ public class MeleeXtraDead : IState<EnemyMelee>
 {
     public void Enter(EnemyMelee agent)
     {
-        agent.SanityBoost();
+        agent.OnXtraDead();
     }
     public void Update(EnemyMelee agent, float deltaTime) { }
     public void Exit(EnemyMelee agent) { }
