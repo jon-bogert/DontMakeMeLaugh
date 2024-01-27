@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] TextMeshProUGUI _healthText;
 
     [Header("Events")]
-    [SerializeField] UnityEvent _onDeath;
+    public UnityEvent onDeath;
     [SerializeField] UnityEvent _onDamaged;
 
     private float timer;
@@ -28,28 +28,23 @@ public class Health : MonoBehaviour
             UpdateUI();
         }
     }
-    private void Update()
-    {
-        if (dead)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
 
     public void TakeDamage(float damage)
     {
+        if (dead)
+        {
+            onDeath.Invoke();
+            return;
+        }
+
         Debug.Log(gameObject.name + ": has taken damage");
         _onDamaged?.Invoke();
         _health -= damage;
-        _health = Mathf.Clamp(_health, -100, _healthMax);
+        _health = Mathf.Clamp(_health, 0, _healthMax);
         if (_health <= 0)
         {
             Debug.Log(gameObject.name + ": has died");
-            _onDeath?.Invoke();
+            onDeath?.Invoke();
             dead = true;
         }
         if (_healthText != null)
