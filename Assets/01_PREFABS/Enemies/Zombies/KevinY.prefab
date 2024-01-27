@@ -864,8 +864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eaf40bb4a5b3504d8172d80aed2d7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 256
-  sampleRate: 14000
+  resolution: 512
+  sampleRate: 10000
 --- !u!114 &8954727895066144205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,4 +913,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d51d07357db0142b38d98d4910f643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joke: {fileID: 8300000, guid: e5e847d5506b46341841d840a27f34f2, type: 3}
