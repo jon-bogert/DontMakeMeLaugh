@@ -106,7 +106,7 @@ MonoBehaviour:
   _lookSpeed: 180
   _slopeDetectionDistance: 0.1
   _camera: {fileID: 0}
-  _gun: {fileID: 0}
+  _gun: {fileID: 2587891871915472218}
   _moveInput: {fileID: -6741616470965299162, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
     type: 3}
   _sprintInput: {fileID: 4385125301659405786, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
