@@ -33,6 +33,11 @@ public class Ammo : MonoBehaviour
         _reloadInput.action.performed += OnReloadInput;
     }
 
+    private void Start()
+    {
+        UpdateUI();
+    }
+
     private void Update()
     {
         if (_clip <= 0)
