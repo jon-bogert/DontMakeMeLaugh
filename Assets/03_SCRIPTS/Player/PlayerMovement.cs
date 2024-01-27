@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _bobRateSprinting = 15f;
     [SerializeField] float _bobHeight = 0.1f;
     [SerializeField] float _bobReturnSpeed = 0.25f;
+    [SerializeField] float _gunBobAmount = 100f;
 
     [Header("Looking")]
     [SerializeField] float _lookSpeed = 1f;
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     float _returnFrom = 1.5f;
     float _returnTimer = 0;
     bool _isGrounded = false;
-    bool _goingDown = false;
+    Vector3 _gunPos = Vector3.zero;
 
     CharacterController _charController;
 
@@ -71,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (_gun != null)
+            _gunPos = _gun.transform.position;
     }
 
     private void Update()
@@ -233,6 +237,15 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 newY,
                 _camera.localPosition.z);
+
+            if (_gun != null)
+            {
+                float gunY = _gunPos.y + _gunBobAmount * 5f * Mathf.Sin(_t - 0.1f);
+                _gun.transform.position = new Vector3(
+                    _gun.transform.position.x,
+                    gunY,
+                    _gun.transform.position.z);
+            }
 
             float rate = (_allowSprint && _sprintInput.action.IsPressed()) ? _bobRateSprinting : _bobRate;
             _t += Time.deltaTime * rate;
