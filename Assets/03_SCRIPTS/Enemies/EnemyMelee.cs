@@ -107,11 +107,13 @@ public class EnemyMelee : MonoBehaviour
         _stateMachine.Update(Time.deltaTime);
         if (velocityOverride != Vector3.zero)
         {
+            velocityOverride.y = -10f;
             _charController.Move(velocityOverride * Time.deltaTime);
             velocityOverride = Vector3.zero;
         }
         else
         {
+            _velocity.y = -10f;
             if (_charController.enabled)
                 _charController.Move(_velocity * Time.deltaTime);
         }
@@ -133,9 +135,9 @@ public class EnemyMelee : MonoBehaviour
         _moveTarget = (_moveTarget + 1) % _patrolPoints.Length;
     }
 
-    internal void SetVelocity(Vector3 veclocity)
+    internal void SetVelocity(Vector3 velocity)
     {
-        _velocity = veclocity;
+        _velocity = velocity;
     }
 
     internal void SetAttackTexture()
@@ -165,7 +167,11 @@ public class EnemyMelee : MonoBehaviour
 
     public void Kill()
     {
+        if (currentState == EnemyState.XtraDead)
+            return;
+            
         _voiceTrigger.Invoke();
+
         if (currentState == EnemyState.Dead)
         {
             ChangeState(EnemyState.XtraDead);

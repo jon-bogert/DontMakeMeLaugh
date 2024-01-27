@@ -13,7 +13,9 @@ public class Projectile : MonoBehaviour
     MeshRenderer _meshRenderer;
     SoundPlayer _soundPlayer;
 
-    public bool isActive { get { return gameObject.activeSelf; } }
+    bool _isEnabled = false;
+
+    public bool isActive { get { return _isEnabled; } }
 
     private void Awake()
     {
@@ -24,39 +26,54 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (!_isEnabled)
+            return;
         Debug.Log("Trigger enter with: " + collision.gameObject.name);
         Health health = collision.transform.GetComponent<Health>();
         if (health == null)
         {           
             _soundPlayer.Play("splat_wall", SoundPlayer.Bank.Multi);
-            _meshRenderer.enabled = false;
+            Disable();
             return;
         }
         
         _soundPlayer.Play("splat_enemy", SoundPlayer.Bank.Multi);
         health.TakeDamage(_damageAmount);
-        _meshRenderer.enabled = false;
+        Disable();
     }
 
     private void Update()
     {
-        if (!_meshRenderer.enabled)
+        if (!_isEnabled)
             return;
 
         _lifeTimer -= Time.deltaTime;
         if (_lifeTimer < 0 )
         {
-            _meshRenderer.enabled = false;
+            Disable();
             return;
         }
     }
 
     public void Activate(Vector3 position, Vector3 velocity)
     {
-        _meshRenderer.enabled = true;
+        Enable();
         _lifeTimer = _maxLifetime;
         _rigidbody.position = position;
         _rigidbody.velocity = velocity;
         //_soundPlayer.Play("whoosh", SoundPlayer.Bank.Single);
+    }
+
+    private void Enable()
+    {
+        _isEnabled = true;
+        _meshRenderer.enabled = true;
+    }
+
+    private void Disable()
+    {
+        _isEnabled = false;
+        _meshRenderer.enabled = false;
+        _rigidbody.velocity = Vector3.zero;
     }
 }
