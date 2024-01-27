@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolSpeed: 3
-  _detectionRange: 9
+  _detectionRange: 12
   _idleTime: 3
   _patrolArriveDistance: 1
   _attackRate: 1

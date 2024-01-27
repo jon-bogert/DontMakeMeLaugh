@@ -55,10 +55,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 140
   DopplerLevel: 1
-  MinDistance: 0
-  MaxDistance: 10
+  MinDistance: 2
+  MaxDistance: 2.5
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2db8211ed924e40ae35897e9908558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 10
+  _damageAmount: 5
 --- !u!82 &5290237241767317014
 AudioSource:
   m_ObjectHideFlags: 0
