@@ -10,20 +10,19 @@ public class PlayerShoot : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform _firePoint;
+    [SerializeField] SoundPlayer _soundPlayer;
 
     [Header("Inputs")]
     [SerializeField] InputActionReference _shootInput;
 
-    ProjectilePool _projectilePool;
-    SoundPlayer _soundPlayer;
+    ProjectilePool _projectilePool;    
     Ammo _ammo;
     float _fireTimer = 0;
 
     private void Awake()
     {
         _fireTimer = _fireRate; // so we can shoot right away
-        _projectilePool = GetComponent<ProjectilePool>();
-        _soundPlayer = GetComponent<SoundPlayer>();
+        _projectilePool = GetComponent<ProjectilePool>();        
         _ammo = GetComponent<Ammo>();
         //get main camera if not assigned
         if (_firePoint == null)

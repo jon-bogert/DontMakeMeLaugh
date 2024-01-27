@@ -12,9 +12,8 @@ public class AmmoPickup : MonoBehaviour
     [SerializeField] float _bobSpeed;
     [SerializeField] float _delay;
 
-    [Header("Sound")]
-    [SerializeField] AudioClip _pickupSound;
-
+    SoundPlayer _soundplayer;
+    SpriteRenderer _spriteRenderer;
     float _delayTimer = 0.0f;
     Transform _target;
     SphereCollider _collider;
@@ -24,7 +23,9 @@ public class AmmoPickup : MonoBehaviour
     {
         _collider = GetComponent<SphereCollider>();
         _sprite.transform.position = _bobCeiling.position;
-        _target = _bobFloor;       
+        _target = _bobFloor;
+        _soundplayer = GetComponent<SoundPlayer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -62,12 +63,14 @@ public class AmmoPickup : MonoBehaviour
         {            
             if (other.TryGetComponent<Ammo>(out var _playerAmmo))
             {
+                _soundplayer.Play("pickup", SoundPlayer.Bank.Single);
                 _playerAmmo.AmmoPickup(_ammoToPickup);
                 if (_playerAmmo.clip == 0)
                 {
                     _playerAmmo.Reload();
                 }
-                gameObject.SetActive(false);
+                _spriteRenderer.enabled = false;
+                _collider.enabled = false;
             }
             else
             {
