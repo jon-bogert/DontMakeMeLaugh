@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
 
     bool _isEnabled = false;
 
-    public bool isActive { get { return gameObject.activeSelf; } }
+    public bool isActive { get { return _isEnabled; } }
 
     private void Awake()
     {

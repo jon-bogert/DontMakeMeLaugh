@@ -164,6 +164,9 @@ public class EnemyMelee : MonoBehaviour
 
     public void Kill()
     {
+        if (currentState == EnemyState.XtraDead)
+            return;
+
         if (currentState == EnemyState.Dead)
         {
             ChangeState(EnemyState.XtraDead);
