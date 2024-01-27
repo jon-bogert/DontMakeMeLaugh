@@ -10,18 +10,19 @@ public class PlayerShoot : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform _firePoint;
+    [SerializeField] SoundPlayer _soundPlayer;
 
     [Header("Inputs")]
     [SerializeField] InputActionReference _shootInput;
 
-    ProjectilePool _projectilePool;
+    ProjectilePool _projectilePool;    
     Ammo _ammo;
     float _fireTimer = 0;
 
     private void Awake()
     {
         _fireTimer = _fireRate; // so we can shoot right away
-        _projectilePool = GetComponent<ProjectilePool>();
+        _projectilePool = GetComponent<ProjectilePool>();        
         _ammo = GetComponent<Ammo>();
         //get main camera if not assigned
         if (_firePoint == null)
@@ -48,7 +49,7 @@ public class PlayerShoot : MonoBehaviour
             return;
 
         _ammo.Fire();
-        //FindObjectOfType<SoundManager>().Play("shoot"); // TODO - Change
+        _soundPlayer.Play("shoot", SoundPlayer.Bank.Multi);
         Vector3 velocity = _firePoint.forward * _projectileSpeed;
         _projectilePool.FireNext(_firePoint.transform.position, velocity);
     }

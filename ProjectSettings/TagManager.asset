@@ -13,14 +13,14 @@ TagManager:
   - UI
   - Player
   - PlayerProjectile
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyDamager
+  - Props
+  - CollidableProps
+  - EnemyBarrier
+  - EnemyPush
+  - PlayerInteractor
+  - FX
   - 
   - 
   - 
