@@ -64,11 +64,7 @@ public class AmmoPickup : MonoBehaviour
             if (other.TryGetComponent<Ammo>(out var _playerAmmo))
             {
                 _soundplayer.Play("pickup", SoundPlayer.Bank.Single);
-                _playerAmmo.AmmoPickup(_ammoToPickup);
-                if (_playerAmmo.clip == 0)
-                {
-                    _playerAmmo.Reload();
-                }
+                _playerAmmo.AmmoPickup(_ammoToPickup);               
                 _spriteRenderer.enabled = false;
                 _collider.enabled = false;
             }
