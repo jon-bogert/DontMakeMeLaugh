@@ -46,7 +46,7 @@ public class Projectile : MonoBehaviour
         _lifeTimer -= Time.deltaTime;
         if (_lifeTimer < 0 )
         {
-            gameObject.SetActive(false);
+            _meshRenderer.enabled = false;
             return;
         }
     }
