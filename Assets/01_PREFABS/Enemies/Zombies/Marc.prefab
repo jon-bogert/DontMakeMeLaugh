@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2733014809752666675}
   - component: {fileID: 5819932853379015655}
   - component: {fileID: -6575652953424065951}
+  - component: {fileID: 1973114873320716159}
   m_Layer: 8
   m_Name: Marc
   m_TagString: Untagged
@@ -41,6 +42,7 @@ Transform:
   - {fileID: 5201891773409235990}
   - {fileID: 5201891773245239988}
   - {fileID: 5597031527889011065}
+  - {fileID: 4932544573701277773}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.997, z: 0}
@@ -169,6 +171,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  velocityOverride: {x: 0, y: 0, z: 0}
 --- !u!114 &5201891772124829284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +187,7 @@ MonoBehaviour:
   _health: 20
   _healthMax: 20
   _healthText: {fileID: 0}
-  _onDeath:
+  onDeath:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5201891772124829286}
@@ -201,7 +204,19 @@ MonoBehaviour:
         m_CallState: 2
   _onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1973114873320716159}
+        m_TargetAssemblyTypeName: EnemyDamageFlash, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &5112440523392293107
 AudioSource:
   m_ObjectHideFlags: 0
@@ -358,6 +373,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepTime: 0.2
   attacking: 0
+--- !u!114 &1973114873320716159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201891772124829292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b5efb3fee6d3c41a0fa5d06f2a3f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeUp: 0.05
+  _timeDown: 0.05
 --- !u!1 &5201891773245239991
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,3 +658,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f40d6acbf36e04ba87edc7f7b54b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8907704041752840434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4932544573701277773}
+  - component: {fileID: 9008017454933640620}
+  - component: {fileID: 5199262982745340875}
+  m_Layer: 13
+  m_Name: Push
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4932544573701277773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907704041752840434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5201891772124829280}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &9008017454933640620
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907704041752840434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5199262982745340875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907704041752840434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e846a5e91c23e56468dc0bc23838dfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pushAmount: 10
