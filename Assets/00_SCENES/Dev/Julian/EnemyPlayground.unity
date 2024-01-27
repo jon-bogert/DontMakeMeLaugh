@@ -562,6 +562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jordan
       objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: d06e9053ea6a83e4c8f2fe9b64659128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06e9053ea6a83e4c8f2fe9b64659128, type: 3}
 --- !u!1 &281873638
@@ -1107,6 +1112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fabian
       objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 6c1d275da9fe2314db023d6aee42f71c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c1d275da9fe2314db023d6aee42f71c, type: 3}
 --- !u!1001 &741649393
@@ -1175,6 +1185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sophie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 3469dfb4832a8324782dcd20b70b16d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3469dfb4832a8324782dcd20b70b16d6, type: 3}
@@ -1245,6 +1260,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marc
       objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: c0010140971d26442bb092ca61e9a77f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0010140971d26442bb092ca61e9a77f, type: 3}
 --- !u!1001 &831733079
@@ -1313,6 +1333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 2d04452802118a843823a58197b6bca0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d04452802118a843823a58197b6bca0, type: 3}
@@ -1576,6 +1601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chase
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 053b7c05637899f439e88391cf2af011,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 053b7c05637899f439e88391cf2af011, type: 3}
@@ -2190,6 +2220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vince
       objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 3e90657d6e5c705498f8dee9339adc5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e90657d6e5c705498f8dee9339adc5f, type: 3}
 --- !u!1 &1320986868
@@ -2550,6 +2585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 9ef1c3c59a926cb4eaa77340df202da5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef1c3c59a926cb4eaa77340df202da5, type: 3}
@@ -3665,6 +3705,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KevinY
       objectReference: {fileID: 0}
+    - target: {fileID: 5201891772124829292, guid: 57df3d9c02fec564f9cbf1a723314c50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57df3d9c02fec564f9cbf1a723314c50, type: 3}
 --- !u!1001 &1948230427
@@ -4134,7 +4179,7 @@ PrefabInstance:
     - target: {fileID: 667504818386603507, guid: 7e24a09b451a19a4dbc316807c5b05ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 667504818386603507, guid: 7e24a09b451a19a4dbc316807c5b05ad,
         type: 3}

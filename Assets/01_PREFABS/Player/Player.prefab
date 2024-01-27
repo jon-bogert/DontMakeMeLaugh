@@ -282,7 +282,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -339,13 +339,13 @@ MonoBehaviour:
   - key: step
     bank:
       bank:
-      - {fileID: 8300000, guid: 36b5bc640681b1a40af2c8dfd0a2d012, type: 3}
-      - {fileID: 8300000, guid: 5f8adf31bc03c384eb5a8977513957d4, type: 3}
-      - {fileID: 8300000, guid: 3772241975aacc94fbf5b0b1cddf7d32, type: 3}
-      - {fileID: 8300000, guid: 3fbb64bbf60d5394fadf57829c738752, type: 3}
-      - {fileID: 8300000, guid: dd9aeafb87adbea45a31ad5b3be76df8, type: 3}
-      - {fileID: 8300000, guid: 2158221e1e7ef334fa1860e902b01c57, type: 3}
-      - {fileID: 8300000, guid: aa7e58bf3dc580a41b0ff76a0947d97b, type: 3}
+      - {fileID: 8300000, guid: 023070dfb6d4b1e448a45e780d7dbd8f, type: 3}
+      - {fileID: 8300000, guid: 029f9f92402b45d4399dd724b10ece8b, type: 3}
+      - {fileID: 8300000, guid: 9a1b561f9e59cf946a2c8b0af6b94ef1, type: 3}
+      - {fileID: 8300000, guid: ee84997e2ac78174799cb5d2476dda06, type: 3}
+      - {fileID: 8300000, guid: 6a77ce8d5289fb142a52786840c51e1e, type: 3}
+      - {fileID: 8300000, guid: b59d2c78aa3de364c869cb318a7aac22, type: 3}
+      - {fileID: 8300000, guid: c818cf9aeb984a6498a17e7a43eca571, type: 3}
       volume: 0.75
   - key: shoot
     bank:
