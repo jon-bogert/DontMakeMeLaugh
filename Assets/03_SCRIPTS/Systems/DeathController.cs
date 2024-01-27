@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
 {
@@ -36,5 +37,17 @@ public class DeathController : MonoBehaviour
         {
             _otherObjects[i].SetActive(false);
         }
+    }
+
+    public void ReloadGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void GotoMainMenu()
+    {
+        //Time.timeScale = 1f;
+        Debug.Log("Load Main Menu Here");
     }
 }
