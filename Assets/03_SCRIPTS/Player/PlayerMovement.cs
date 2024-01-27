@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _bobRateSprinting = 15f;
     [SerializeField] float _bobHeight = 0.1f;
     [SerializeField] float _bobReturnSpeed = 0.25f;
-    [SerializeField] float _gunBobAmount = 100f;
+    [SerializeField] float _gunBobAmount = 0.5f;
 
     [Header("Looking")]
     [SerializeField] float _lookSpeed = 1f;
@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     float _cameraHeight = 1.5f;
     float _t = 0f;
     float _returnFrom = 1.5f;
+    Vector3 _returnFromGun = Vector3.zero;
     float _returnTimer = 0;
     bool _isGrounded = false;
     Vector3 _gunPos = Vector3.zero;
@@ -115,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _returnTimer = _bobReturnSpeed;
                 _returnFrom = _camera.localPosition.y;
+                _returnFromGun = _gun.transform.position;
             }
             _isMoving = false;
         }
@@ -241,8 +243,9 @@ public class PlayerMovement : MonoBehaviour
             if (_gun != null)
             {
                 float gunY = _gunPos.y + _gunBobAmount * 5f * Mathf.Sin(_t - 0.1f);
+                float gunX = _gunPos.x + _gunBobAmount * 5f * Mathf.Sin(_t * 0.5f);
                 _gun.transform.position = new Vector3(
-                    _gun.transform.position.x,
+                    gunX,
                     gunY,
                     _gun.transform.position.z);
             }
@@ -250,8 +253,8 @@ public class PlayerMovement : MonoBehaviour
             float rate = (_allowSprint && _sprintInput.action.IsPressed()) ? _bobRateSprinting : _bobRate;
             _t += Time.deltaTime * rate;
 
-            while (_t > 2 * Mathf.PI)
-                _t -= 2 * Mathf.PI;
+            while (_t > 4 * Mathf.PI)
+                _t -= 4 * Mathf.PI;
             return;
         }
 
@@ -266,6 +269,8 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 _cameraHeight,
                 _camera.localPosition.z);
+
+            _gun.transform.position = _gunPos;
             return;
         }
 
@@ -274,6 +279,9 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 y,
                 _camera.localPosition.z);
+
+        Vector3 pos = Vector3.Lerp(_gunPos, _returnFromGun, t);
+        _gun.transform.position = pos;
 
     }
 }

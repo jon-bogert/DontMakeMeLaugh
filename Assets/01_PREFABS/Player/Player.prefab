@@ -102,9 +102,11 @@ MonoBehaviour:
   _bobRateSprinting: 15
   _bobHeight: 0.1
   _bobReturnSpeed: 0.25
+  _gunBobAmount: 1
   _lookSpeed: 180
   _slopeDetectionDistance: 0.1
   _camera: {fileID: 0}
+  _gun: {fileID: 0}
   _moveInput: {fileID: -6741616470965299162, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
     type: 3}
   _sprintInput: {fileID: 4385125301659405786, guid: 2f0755f45a202f44fb7f2e89e4c050bd,
@@ -1261,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.5556, y: -264.85205}
+  m_AnchoredPosition: {x: 6.5556, y: -279}
   m_SizeDelta: {x: 80.2381, y: 73.601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3383972630656055052
