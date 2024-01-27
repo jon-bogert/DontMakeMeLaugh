@@ -16,16 +16,16 @@ public class AmmoPickup : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     float _delayTimer = 0.0f;
     Transform _target;
-    SphereCollider _collider;
+    Collider _collider;
     bool _isWaiting = false;   
     
     private void Start()
     {
-        _collider = GetComponent<SphereCollider>();
+        _collider = GetComponent<Collider>();
         _sprite.transform.position = _bobCeiling.position;
         _target = _bobFloor;
         _soundplayer = GetComponent<SoundPlayer>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
