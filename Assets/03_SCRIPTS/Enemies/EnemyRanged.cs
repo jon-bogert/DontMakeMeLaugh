@@ -20,6 +20,7 @@ public class EnemyRanged : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform _camera;
+    [SerializeField] SoundPlayer _dialougeSoundPlayer;
 
     [Header("Events")]
     [SerializeField] UnityEvent onAttack;
@@ -31,6 +32,7 @@ public class EnemyRanged : MonoBehaviour
     Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
+    SoundPlayer _dialogueSoundPlayer;
 
     public float patrolSpeed { get { return _patrolSpeed; } }
     public float idleTime { get { return _idleTime; } }
@@ -137,7 +139,8 @@ public class EnemyRanged : MonoBehaviour
 
     internal void PlayDeathLine()
     {
-        Debug.Log(name + ": Play death line");
+        Debug.Log("play death line");
+        _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
     }
 
     internal void SanityBoost()
