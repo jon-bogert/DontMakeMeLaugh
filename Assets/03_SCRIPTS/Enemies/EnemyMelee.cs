@@ -31,6 +31,7 @@ public class EnemyMelee : MonoBehaviour
     CharacterController _charController;
     StateMachine<EnemyMelee> _stateMachine;
     Health _playerHealth;
+    PlayerVoiceTrigger _voiceTrigger;
     Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
@@ -97,6 +98,8 @@ public class EnemyMelee : MonoBehaviour
         _playerHealth = FindObjectOfType<PlayerMovement>().GetComponent<Health>();
         if (_playerHealth == null)
             Debug.LogWarning("EnemyMelee could not find Player's health component");
+
+        _voiceTrigger = _playerHealth.GetComponent<PlayerVoiceTrigger>();
     }
 
     private void Update()
@@ -166,6 +169,8 @@ public class EnemyMelee : MonoBehaviour
     {
         if (currentState == EnemyState.XtraDead)
             return;
+            
+        _voiceTrigger.Invoke();
 
         if (currentState == EnemyState.Dead)
         {

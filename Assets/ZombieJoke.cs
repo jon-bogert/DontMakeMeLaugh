@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieJoke : MonoBehaviour
-{
-    [SerializeField] AudioClip _joke; 
+{   
 
     EnemyMelee _zombie;
     Health _zombieHealth;
@@ -17,11 +16,16 @@ public class ZombieJoke : MonoBehaviour
         _zombie = GetComponentInParent<EnemyMelee>();
         _zombieHealth = _zombie.GetComponent<Health>();
         _soundPlayer = GetComponent<SoundPlayer>();
-        _jokeLength = _joke.length;
+    }
+    private void Start()
+    {
+
+        _jokeLength = _soundPlayer.GetLengthOfSingle("joke");
         _timer = _jokeLength - 0.1f;
     }
     private void Update()
     {
+
         _timer += Time.deltaTime;
         if (_timer >= _jokeLength && _zombieHealth.health > 0)
         {

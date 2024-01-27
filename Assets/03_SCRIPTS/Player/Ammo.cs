@@ -15,6 +15,9 @@ public class Ammo : MonoBehaviour
 
     [Header ("References")]
     [SerializeField] TextMeshProUGUI _ammoText;
+    [SerializeField] Transform _gunUpPOS;
+    [SerializeField] Transform _gunDownPOS;
+    [SerializeField] SoundPlayer _gunSoundPlayer;
     [SerializeField] Slider _clipSlider;
     [SerializeField] Image _leaf;
 
@@ -23,6 +26,7 @@ public class Ammo : MonoBehaviour
 
     bool _tryReload;
     float _timer;
+    SoundPlayer _soundPlayer;
 
     public float total { get { return  _ammo; } }
     public float clip { get { return  _clip; } }
@@ -30,7 +34,7 @@ public class Ammo : MonoBehaviour
 
     private void Awake()
     {
-        _reloadInput.action.performed += OnReloadInput;
+        _reloadInput.action.performed += OnReloadInput;        
     }
 
     private void Start()
@@ -82,6 +86,7 @@ public class Ammo : MonoBehaviour
             _clip += _clipMax;
             _clip = Mathf.Clamp(_clip, 0, _clipMax);
             UpdateUI();
+            
         }
         else
         {
@@ -126,6 +131,7 @@ public class Ammo : MonoBehaviour
     }
     private void TryReload()
     {
+        _gunSoundPlayer.Play("reload", SoundPlayer.Bank.Single);
         _tryReload = true;
     }
     
