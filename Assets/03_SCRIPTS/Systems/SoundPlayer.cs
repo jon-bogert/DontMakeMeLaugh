@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static SoundPlayer;
 
 
 [System.Serializable]
@@ -127,6 +128,16 @@ public class SoundPlayer : MonoBehaviour
         {
             Debug.LogError("SoundManager -> Could not find " + key + " in multi sound bank");
         }
+    }
+
+    public float GetLengthOfSingle(string key)
+    {
+        if (_single.ContainsKey(key))
+        {
+            return _single[key].clip.length;
+        }
+        Debug.LogError("SoundManager -> Could not find " + key + " in single sound bank");
+        return 0f;
     }
 
 
