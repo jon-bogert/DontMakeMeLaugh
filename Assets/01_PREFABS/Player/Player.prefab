@@ -162,6 +162,7 @@ MonoBehaviour:
   _healthMax: 100
   _healthText: {fileID: 2729943189081885238}
   _soundPlayer: {fileID: 4712779076553247743}
+  _musicPlayer: {fileID: 7370533016590274019}
   onDeath:
     m_PersistentCalls:
       m_Calls:
@@ -799,7 +800,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 775c54ab3381ff74da54fb95bafb2754, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3440,7 +3441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83931f03144cf6a468bf947eee192a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleSoundBank: []
+  singleSoundBank:
+  - key: deathLaugh
+    clip: {fileID: 8300000, guid: 5b1768b4bef3891488ff462ec0db1ad3, type: 3}
+    volume: 1
   multiSoundBank:
   - key: reaction
     bank:
@@ -3479,6 +3483,17 @@ MonoBehaviour:
       - {fileID: 8300000, guid: b26c5a21b5bc2674fb43e8336067a41d, type: 3}
       - {fileID: 8300000, guid: c0d185c7ce4a0424992c0c081af4e2f3, type: 3}
       - {fileID: 8300000, guid: 311b7804bebaa4f429996d4d3e910269, type: 3}
+      volume: 1
+  - key: heal
+    bank:
+      bank:
+      - {fileID: 8300000, guid: d0b422c643e11884dad99077ee26ed25, type: 3}
+      - {fileID: 8300000, guid: cd45004cfb6af69458b5cd10d21b3cea, type: 3}
+      - {fileID: 8300000, guid: d6fc15fefa414b841b5171a844c92929, type: 3}
+      - {fileID: 8300000, guid: 48f23ff71004fcb46b3d32211910eda3, type: 3}
+      - {fileID: 8300000, guid: 4b9ae75aa7189204090bb0f7e0ac9298, type: 3}
+      - {fileID: 8300000, guid: 64aca080f50ab6743add674890972755, type: 3}
+      - {fileID: 8300000, guid: 9e1ab907ca1bc224cbd0c8d68796491d, type: 3}
       volume: 1
 --- !u!1 &8940906242944870556
 GameObject:
