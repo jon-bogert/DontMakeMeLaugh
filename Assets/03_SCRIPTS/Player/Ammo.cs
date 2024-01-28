@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -26,6 +27,7 @@ public class Ammo : MonoBehaviour
 
     bool _tryReload;
     float _timer;
+    Color _ammoTextColor;
     SoundPlayer _soundPlayer;
 
     public float total { get { return  _ammo; } }
@@ -40,6 +42,7 @@ public class Ammo : MonoBehaviour
     private void Start()
     {
         UpdateUI();
+        _ammoTextColor = _ammoText.color;
     }
 
     private void Update()
@@ -111,6 +114,8 @@ public class Ammo : MonoBehaviour
         {
             _ammo += pickupAmount;
             _ammo = Mathf.Clamp(_ammo, 0, _ammoMax);
+            _ammoText.color = Color.green;
+            StartCoroutine(ChangeColorAfterTime(1));
             UpdateUI();
         }
         else
@@ -128,6 +133,7 @@ public class Ammo : MonoBehaviour
             return;
         }
         _ammoText.text = _ammo.ToString();
+        
         _clipSlider.value = _clip;
         if (_clip == _clipMax)
         {
@@ -146,5 +152,10 @@ public class Ammo : MonoBehaviour
     private void OnReloadInput(InputAction.CallbackContext ctx)
     {
         TryReload();
+    }
+    IEnumerator ChangeColorAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _ammoText.color = _ammoTextColor;
     }
 }
