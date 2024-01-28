@@ -12,6 +12,7 @@ public class ZombieAttackSounds : MonoBehaviour
     {
         _soundPlayer = GetComponent<SoundPlayer>();
         _enemyMoveSounds = GetComponentInParent<EnemyMoveSounds>();
+
     }
   
     public void AttackSound()
