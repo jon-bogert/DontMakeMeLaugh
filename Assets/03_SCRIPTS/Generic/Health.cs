@@ -18,12 +18,19 @@ public class Health : MonoBehaviour
     private float timer;
     private float deathTimer = 2;
     private bool dead = false;
+    bool _comedian = false;
+    EnemyShoot _comedianScript;
 
     public float health { get { return _health; } }
 
     private void Start()
     {
         timer = deathTimer;
+        if (TryGetComponent<EnemyShoot>(out EnemyShoot enemyShoot))
+        {
+            _comedian = true;
+            _comedianScript = enemyShoot;
+        }
         if (_healthText != null)
         {
             UpdateUI();
@@ -47,7 +54,19 @@ public class Health : MonoBehaviour
         Debug.Log(gameObject.name + ": has taken damage");
         _onDamaged?.Invoke();
         _health -= damage;
-        _soundPlayer.Play("hit", SoundPlayer.Bank.Multi);
+        if (!_comedian)
+        {
+            _soundPlayer.Play("hit", SoundPlayer.Bank.Multi);
+        }
+        else if (_comedian)
+        {
+            bool setupSaid = _comedianScript.setupSaid;
+            if (setupSaid)
+            {
+                _soundPlayer.Play("hit", SoundPlayer.Bank.Multi);
+            }
+        }
+        
         _health = Mathf.Clamp(_health, 0, _healthMax);
         if (_health <= 0)
         {

@@ -15,6 +15,8 @@ public class EnemyShoot : MonoBehaviour
     float _timer = 0;
     bool _firstShot = false;
 
+    public bool setupSaid { get { return _setupSaid; } }
+
     private void Awake()
     {
         _projectilePool = GetComponent<ProjectilePool>();
