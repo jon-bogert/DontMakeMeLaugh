@@ -11,7 +11,11 @@ public class GODMODE : MonoBehaviour
     private void Update()
     {
         if (!Debug.isDebugBuild)
+        {
+            if (Input.GetKey(KeyCode.LeftBracket) && Input.GetKeyDown(KeyCode.RightBracket))
+                _godMode = !_godMode;
             return;
+        }
 
         if (Input.GetKeyDown(KeyCode.G))
         {

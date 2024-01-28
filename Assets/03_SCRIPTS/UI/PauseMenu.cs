@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -22,12 +23,14 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameObject.SetActive(false);
         _gameplayHUD.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void GotoMainMenu()
     {
-        //Time.timeScale = 1f;
-        Debug.Log("Goto Main Menu Here");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void Pause()
@@ -35,6 +38,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gameObject.SetActive(true);
         _gameplayHUD.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnApplicationFocus(bool focus)

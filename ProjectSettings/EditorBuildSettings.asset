@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00_SCENES/Dev/Jon/RetroEffects.unity
-    guid: 479cc59761eb50c4ca1d54fda285dfe7
-  - enabled: 1
-    path: Assets/00_SCENES/Dev/Julian/MainMenu.unity
-    guid: 315275f4909a3d74ba779654aa32d7b7
+    path: Assets/00_SCENES/Dev/Jon/MainMenu.unity
+    guid: 18cca8a30b26e3f43b637cd0ccc4a078
   - enabled: 1
     path: Assets/00_SCENES/Dev/Pierre/Level1.unity
     guid: b5ead08655ee3d24caf47518b68180bd
