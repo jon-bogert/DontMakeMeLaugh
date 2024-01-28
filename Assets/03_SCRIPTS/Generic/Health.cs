@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 using TMPro;
 
 public class Health : MonoBehaviour
@@ -10,6 +11,7 @@ public class Health : MonoBehaviour
     [Header("References")]
     [SerializeField] TextMeshProUGUI _healthText;
     [SerializeField] SoundPlayer _soundPlayer;
+    [SerializeField] AudioSource _musicPlayer;
 
     [Header("Events")]
     public UnityEvent onDeath;
@@ -19,7 +21,10 @@ public class Health : MonoBehaviour
     private float deathTimer = 2;
     private bool dead = false;
     bool _comedian = false;
+    bool _player = false;
+    float _previousHealth;
     EnemyShoot _comedianScript;
+    Color _healthTextColor;
 
     public float health { get { return _health; } }
 
@@ -34,6 +39,8 @@ public class Health : MonoBehaviour
         if (_healthText != null)
         {
             UpdateUI();
+            _player = true;
+            _healthTextColor = _healthText.color;
         }
     }
 
@@ -71,6 +78,11 @@ public class Health : MonoBehaviour
         {
             onDeath?.Invoke();
             dead = true;
+            if (_player)
+            {
+                _soundPlayer.Play("deathLaugh", SoundPlayer.Bank.Single);
+                _musicPlayer.Pause();
+            }
         }
         if (_healthText != null)
         {
@@ -96,6 +108,14 @@ public class Health : MonoBehaviour
         if (_healthText != null)
         {
             UpdateUI();
+            _soundPlayer.Play("heal", SoundPlayer.Bank.Multi);
+            _healthText.color = Color.green;
+            StartCoroutine(ChangeColorAfterTime(1));
         }
+    }
+    IEnumerator ChangeColorAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _healthText.color = _healthTextColor;
     }
 }
