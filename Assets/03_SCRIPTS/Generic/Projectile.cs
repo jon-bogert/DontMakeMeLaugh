@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
     {
         if (!_isEnabled)
             return;
-        Debug.Log("Trigger enter with: " + collision.gameObject.name);
+
         Health health = collision.transform.GetComponent<Health>();
         if (health == null)
         {           

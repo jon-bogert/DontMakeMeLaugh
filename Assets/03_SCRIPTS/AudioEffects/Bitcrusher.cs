@@ -26,9 +26,11 @@ public class Bitcrusher : MonoBehaviour
         if (resolution <= 0)
             resolution = 1;
 
+        int sampleWidth = internalSampleRate / 8000;
         if (sampleRate == 0)
             Debug.Log(n + " is the issue");
-        int sampleWidth = internalSampleRate / sampleRate;
+        else
+            sampleWidth = internalSampleRate / sampleRate;
 
         for (int i = 0; i < data.Length; i += channels)
         {

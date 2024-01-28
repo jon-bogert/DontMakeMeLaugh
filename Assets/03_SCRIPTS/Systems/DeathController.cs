@@ -15,6 +15,9 @@ public class DeathController : MonoBehaviour
     {
         Time.timeScale = 0f;
         _showScreen = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -43,11 +46,14 @@ public class DeathController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level1");
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void GotoMainMenu()
     {
-        //Time.timeScale = 1f;
-        Debug.Log("Load Main Menu Here");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
