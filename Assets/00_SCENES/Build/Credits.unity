@@ -4690,6 +4690,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5466354479988137603, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: "(All Sounds Created with the mouths of)\n\nAchira \"Good\" Kositanon\nChase
+        Burrows\nDawson Inkster\nJordan Watterson\nJulian Parks\nNick Oreskovic\nPablo
+        Clavijo Qui\xF1on\nPierre Dussausse\nSophie Hissan"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466354480466623334, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: 'Sophie Hissan
+
+        Tiffany Nguyen'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466354480846901308, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: Game Programmers
+      objectReference: {fileID: 0}
     - target: {fileID: 5466354481207051790, guid: 9eefaf81232f675489f1f3608f2fe565,
         type: 3}
       propertyPath: m_IsTrigger
