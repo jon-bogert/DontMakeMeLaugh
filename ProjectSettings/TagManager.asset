@@ -21,8 +21,8 @@ TagManager:
   - EnemyPush
   - PlayerInteractor
   - FX
-  - 
-  - 
+  - AmmoPickup
+  - player
   - 
   - 
   - 
