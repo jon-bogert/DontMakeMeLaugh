@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 3103250800346146453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2269275326612342434}
@@ -87,7 +87,7 @@ MonoBehaviour:
   _sprite: {fileID: 4498938108245083972}
   _bobCeiling: {fileID: 581961975714993946}
   _bobFloor: {fileID: 1925531495783510283}
-  _bobSpeed: 1
+  _bobSpeed: 0.3
   _delay: 0
 --- !u!136 &374812292625018872
 CapsuleCollider:
@@ -353,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6901157300357672899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
