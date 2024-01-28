@@ -17,7 +17,7 @@ public class RangedDead : IState<EnemyRanged>
         if (_timer >= agent.idleTime)
         {
             _timer = 0;
-            agent.PlayDeathLine();
+            //agent.PlayDeathLine();
             return;
         }
         _timer += deltaTime;
