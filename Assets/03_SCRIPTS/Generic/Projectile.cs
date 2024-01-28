@@ -6,7 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float _damageAmount = 10f;
-    [SerializeField] float _maxLifetime = 10f;
+    [SerializeField] float _maxLifetime = 10f;    
 
     float _lifeTimer = 0f;
     Rigidbody _rigidbody;
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _meshRenderer = GetComponent<MeshRenderer>();
-        _soundPlayer = GetComponent<SoundPlayer>();
+        _soundPlayer = GetComponent<SoundPlayer>();        
     }  
 
     private void OnTriggerEnter(Collider collision)
