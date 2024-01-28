@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] string _gameScene;
-    [SerializeField] GameObject _creditsPanel;
+    [SerializeField] GameObject _settingsPanel;
 
-    AudioSource _audioSource;
     private void Start()
     {
     }
@@ -15,12 +14,16 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(_gameScene);
     }
-    public void Credits()
+    public void Settings()
     {
-        _creditsPanel.SetActive(true);
+        _settingsPanel.SetActive(true);
         gameObject.SetActive(false);
     }
-    
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void Quite()
     {
         Application.Quit();

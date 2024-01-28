@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using XephTools;
 
 public class Credits : MonoBehaviour
@@ -27,6 +28,6 @@ public class Credits : MonoBehaviour
 
     public void GotoMainMenu()
     {
-        Debug.Log("Goto Main Menu Here");
+        SceneManager.LoadScene("MainMenu");
     }
 }
