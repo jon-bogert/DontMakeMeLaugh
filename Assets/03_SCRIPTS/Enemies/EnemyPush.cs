@@ -18,6 +18,7 @@ public class EnemyPush : MonoBehaviour
         v.Normalize();
         v *= _pushAmount;
 
-        _enemyMelee.velocityOverride = (v * Time.deltaTime);
+        if (_enemyMelee != null)
+            _enemyMelee.velocityOverride = (v * Time.deltaTime);
     }
 }

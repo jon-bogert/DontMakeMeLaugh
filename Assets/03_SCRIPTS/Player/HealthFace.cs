@@ -35,7 +35,7 @@ public class HealthFace : MonoBehaviour
 
     public void CheckHealth()
     {
-        Debug.Log("Health Checked");
+        //Debug.Log("Health Checked");
         _playerHealth = _playerHealthScript.health;
         
         if (_playerHealth <= 0)

@@ -152,7 +152,6 @@ public class EnemyMelee : MonoBehaviour
 
     internal void Attack()
     {
-        Debug.Log(name + " is Attacking");
         onAttack?.Invoke();
     }
 
