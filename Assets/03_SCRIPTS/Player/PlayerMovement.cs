@@ -77,6 +77,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (_gun != null)
             _gunPos = _gun.transform.localPosition;
+
+        _gamepadSensitivity = AppSettings.gamepadSensitivity;
+        _mouseSensitivity = AppSettings.mouseSensitivity;
     }
 
     private void Update()
