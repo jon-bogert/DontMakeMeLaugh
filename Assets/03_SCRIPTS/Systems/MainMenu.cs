@@ -5,9 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] string _gameScene;
     [SerializeField] GameObject _settingsPanel;
-    [SerializeField] GameObject _creditsPanel;
 
-    AudioSource _audioSource;
     private void Start()
     {
     }
@@ -23,8 +21,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Credits()
     {
-        _creditsPanel.SetActive(true);
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("Credits");
     }
 
     public void Quite()

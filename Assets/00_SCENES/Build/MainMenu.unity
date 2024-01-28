@@ -813,7 +813,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1561413037}
     - target: {fileID: 6441529104843435834, guid: cda300e28bd271147bd7bbadfe57efc9,
         type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -822,12 +822,12 @@ PrefabInstance:
     - target: {fileID: 6441529104843435834, guid: cda300e28bd271147bd7bbadfe57efc9,
         type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 6441529104843435834, guid: cda300e28bd271147bd7bbadfe57efc9,
         type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6441529104843435834, guid: cda300e28bd271147bd7bbadfe57efc9,
         type: 3}
@@ -2834,7 +2834,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameScene: Level1
   _settingsPanel: {fileID: 1005377205}
-  _creditsPanel: {fileID: 0}
 --- !u!114 &1561413038
 MonoBehaviour:
   m_ObjectHideFlags: 0
