@@ -45,8 +45,9 @@ public class Ammo : MonoBehaviour
     private void Update()
     {
         if (_clip <= 0)
-        {
+        {            
             TryReload();
+            _gunSoundPlayer.Play("empty", SoundPlayer.Bank.Single);
         }
         if (_tryReload)
         {
@@ -69,14 +70,19 @@ public class Ammo : MonoBehaviour
     public void Fire()
     {
         if (GODMODE.isGodModeEnabled)
-            return;
+            return;       
 
         _clip -= 1;
+        if (_clip <= 0)
+        {
+            _gunSoundPlayer.Play("empty", SoundPlayer.Bank.Single);
+        }
         UpdateUI();
     }
 
     public void Reload()
     {
+        _gunSoundPlayer.Play("reload", SoundPlayer.Bank.Single);
         if (_ammo != 0)
         {
             if (_clip != 0)
@@ -133,8 +139,7 @@ public class Ammo : MonoBehaviour
         }
     }
     private void TryReload()
-    {
-        _gunSoundPlayer.Play("reload", SoundPlayer.Bank.Single);
+    {        
         _tryReload = true;
     }
     

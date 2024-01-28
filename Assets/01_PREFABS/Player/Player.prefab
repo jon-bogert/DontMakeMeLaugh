@@ -270,7 +270,7 @@ AudioSource:
   Priority: 50
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2496,10 +2496,10 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 140
+  Priority: 84
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2604,6 +2604,9 @@ MonoBehaviour:
   - key: reload
     clip: {fileID: 8300000, guid: 7bdeedc7aa9a4914c9829d717f9ed6a2, type: 3}
     volume: 0.7
+  - key: empty
+    clip: {fileID: 8300000, guid: b9f2aeed9cc85614090349633abc8dd9, type: 3}
+    volume: 0.5
   multiSoundBank:
   - key: shoot
     bank:
