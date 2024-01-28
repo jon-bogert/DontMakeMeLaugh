@@ -104,7 +104,8 @@ AudioSource:
   m_GameObject: {fileID: 2718530452210063286}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bcb012c1cee24454880bee794b3cf574,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -115,8 +116,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 140
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 2.5
+  MinDistance: 1
+  MaxDistance: 1.5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -220,10 +221,10 @@ MonoBehaviour:
   singleSoundBank:
   - key: death
     clip: {fileID: 8300000, guid: 97ecad464eb79c5498249fa9ff325c09, type: 3}
-    volume: 0.5
+    volume: 0.75
   - key: joke
     clip: {fileID: 8300000, guid: 9c6ef1c5c7cdb3847bff6573cc0b40f6, type: 3}
-    volume: 0.5
+    volume: 0.85
   multiSoundBank:
   - key: hit
     bank:
@@ -702,7 +703,7 @@ AudioSource:
   Priority: 168
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
