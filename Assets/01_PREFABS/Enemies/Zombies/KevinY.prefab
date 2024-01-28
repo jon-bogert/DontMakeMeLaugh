@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e846a5e91c23e56468dc0bc23838dfe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pushAmount: 10
+  _pushAmount: 25
 --- !u!1 &5201891772124829292
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 1d7b3de5274ca5942ba4244482eb1611, type: 3}
       - {fileID: 8300000, guid: 2efc09779c90bdf40ab919c5c0e67a94, type: 3}
       - {fileID: 8300000, guid: 70c21ec7fe66ed04a8fd4903dd35ee6d, type: 3}
-      volume: 0.85
+      volume: 0.5
 --- !u!114 &3526013596498444787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +791,7 @@ AudioSource:
   Priority: 140
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 1.5
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -826,7 +826,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
