@@ -63,6 +63,7 @@ public class EnemyRanged : MonoBehaviour
     public float deathLineLength { get { return 3f; } } //TODO get from audio length
     public EnemyState currentState { get { return (EnemyState)_stateMachine.currentState; } }
     public bool doesPatrol { get { return _patrolPoints != null &&  _patrolPoints.Length > 0;} }
+    public LayerMask wallcheckMask { get { return _wallcheckMask; } }
 
     private void Awake()
     {
