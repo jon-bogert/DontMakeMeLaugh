@@ -336,11 +336,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _patrolSpeed: 3
   _seekSpeed: 4
-  _detectionRange: 9
+  _detectionRange: 11
   _idleTime: 3
   _patrolArriveDistance: 1
   _attackRate: 2
-  _healAmount: 10
+  _healAmount: 3
   _patrolPoints:
   - {fileID: 5201891773409235990}
   - {fileID: 5201891773245239988}

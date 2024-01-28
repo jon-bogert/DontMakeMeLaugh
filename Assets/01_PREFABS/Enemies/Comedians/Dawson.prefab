@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2db8211ed924e40ae35897e9908558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 10
+  _damageAmount: 8
 --- !u!1 &5266130097867109107
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,10 +293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolSpeed: 3
-  _detectionRange: 9
+  _detectionRange: 16
   _idleTime: 3
   _patrolArriveDistance: 1
-  _attackRate: 2
+  _attackRate: 1
   _healAmount: 10
   _patrolPoints: []
   _wallcheckMask:
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f611d2700bd0b40852781101c08646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 30
-  _healthMax: 30
+  _health: 50
+  _healthMax: 50
   _healthText: {fileID: 0}
   _soundPlayer: {fileID: 559868549908994816}
   onDeath:
