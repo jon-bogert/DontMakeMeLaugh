@@ -135,13 +135,11 @@ public class EnemyRanged : MonoBehaviour
 
     internal void Attack()
     {
-        Debug.Log(name + " is Attacking");
         onAttack?.Invoke();
     }
 
     internal void PlayDeathLine()
     {
-        Debug.Log("play death line");
         if (_audioRay.canPlaySound)
         {
             _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
