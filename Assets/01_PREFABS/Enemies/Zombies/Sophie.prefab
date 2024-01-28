@@ -774,10 +774,10 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 140
+  Priority: 139
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 2.5
+  MinDistance: 1
+  MaxDistance: 1.5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -881,10 +881,10 @@ MonoBehaviour:
   singleSoundBank:
   - key: death
     clip: {fileID: 8300000, guid: 65d772a58004c7440bcd77528ff18f64, type: 3}
-    volume: 0.5
+    volume: 0.75
   - key: joke
     clip: {fileID: 8300000, guid: 481e2a27c1ef70b46a95a9dda77c386b, type: 3}
-    volume: 0.5
+    volume: 0.85
   multiSoundBank:
   - key: hit
     bank:
