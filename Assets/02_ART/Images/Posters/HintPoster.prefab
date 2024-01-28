@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 396202191999908860}
   - component: {fileID: 8884668711902100574}
   m_Layer: 0
-  m_Name: TutorialPosters3
+  m_Name: HintPoster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 35827300689773674}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -3.75, y: 19.55, z: -34.83}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.15}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3187c572148e35c48821061fab8cd9d3, type: 2}
+  - {fileID: 2100000, guid: c41f1d1225500c24fbc93adf4253d3fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
