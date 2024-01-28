@@ -74,10 +74,6 @@ public class AmmoPickup : MonoBehaviour
             }
            
         }
-        else
-        {
-            Debug.Log("Something not a player hit ammo pickup: " + gameObject.name);
-        }
     }
    
 }

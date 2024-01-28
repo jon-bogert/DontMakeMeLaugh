@@ -22,7 +22,6 @@ public class PlayerInteraction : MonoBehaviour
         if (i == null)
             return;
 
-        Debug.Log("Door Found");
         _interactable = i;
     }
 
