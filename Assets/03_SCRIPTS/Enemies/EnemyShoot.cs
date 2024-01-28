@@ -5,6 +5,8 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] float _projectileSpeed = 10f;
     [SerializeField] Transform _firePoint;
+    [Range(0, 1)]
+    [SerializeField] float _leadChance = 0.5f;
     [SerializeField] ComedianAttackSounds _attackSoud;
 
     PlayerMovement _player;
@@ -14,6 +16,8 @@ public class EnemyShoot : MonoBehaviour
     bool _firing = false;
     float _timer = 0;
     bool _firstShot = false;
+
+    public bool setupSaid { get { return _setupSaid; } }
 
     private void Awake()
     {
@@ -63,7 +67,7 @@ public class EnemyShoot : MonoBehaviour
         }
         else if (_firing && _setupSaid)
         {
-            Vector3 velocity = CalcVelocity(); ;
+            Vector3 velocity = CalcVelocity();
             _projectilePool.FireNext(_firePoint.position, velocity);
             _firing = false;            
             
@@ -75,9 +79,18 @@ public class EnemyShoot : MonoBehaviour
 
     private Vector3 CalcVelocity()
     {
-        Vector3 displacement = _player.transform.position - transform.position;
-        float time = displacement.magnitude / _projectileSpeed;
-        Vector3 velocity = displacement / time + _player.velocity;
-        return velocity;
+        float chance = Random.Range(0f, 1f);
+        if (chance < _leadChance)
+        {
+            Vector3 displacement = _player.transform.position - transform.position;
+            float time = displacement.magnitude / _projectileSpeed;
+            Vector3 velocity = displacement / time + _player.velocity;
+            return velocity;
+        }
+
+        Vector3 v = _player.transform.position - transform.position;
+        v.Normalize();
+        v *= _projectileSpeed;
+        return v;
     }
 }

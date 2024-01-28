@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileSpeed: 20
   _firePoint: {fileID: 1533957375374917631}
+  _leadChance: 0.5
   _attackSoud: {fileID: 3049323824527471241}
 --- !u!114 &7537466261648653731
 MonoBehaviour:
