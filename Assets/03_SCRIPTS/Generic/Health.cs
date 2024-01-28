@@ -51,7 +51,6 @@ public class Health : MonoBehaviour
             return;
         }
 
-        Debug.Log(gameObject.name + ": has taken damage");
         _onDamaged?.Invoke();
         _health -= damage;
         if (!_comedian)
@@ -70,7 +69,6 @@ public class Health : MonoBehaviour
         _health = Mathf.Clamp(_health, 0, _healthMax);
         if (_health <= 0)
         {
-            Debug.Log(gameObject.name + ": has died");
             onDeath?.Invoke();
             dead = true;
         }
