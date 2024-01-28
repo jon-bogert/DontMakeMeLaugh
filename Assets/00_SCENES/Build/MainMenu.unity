@@ -761,9 +761,7 @@ PrefabInstance:
     - target: {fileID: 8512964055195858084, guid: cda300e28bd271147bd7bbadfe57efc9,
         type: 3}
       propertyPath: m_text
-      value: 'Credits
-
-'
+      value: Instant Win
       objectReference: {fileID: 0}
     - target: {fileID: 8512964055195858084, guid: cda300e28bd271147bd7bbadfe57efc9,
         type: 3}
