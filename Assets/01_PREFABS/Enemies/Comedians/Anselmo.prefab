@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: -4913067974881523027}
   - component: {fileID: -3853616407116427029}
   - component: {fileID: -5095552105122777995}
+  - component: {fileID: 9209879525255150286}
   m_Layer: 8
   m_Name: Anselmo
   m_TagString: Untagged
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileSpeed: 20
   _firePoint: {fileID: 1533957375374917631}
+  _leadChance: 0.5
   _attackSoud: {fileID: 3049323824527471241}
 --- !u!114 &7537466261648653731
 MonoBehaviour:
@@ -501,6 +503,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepTime: 0.3
   attacking: 0
+--- !u!114 &9209879525255150286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266130097867109107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadc7bc3384988f4b81f8cacf57d1588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5880014463035260727
 GameObject:
   m_ObjectHideFlags: 0

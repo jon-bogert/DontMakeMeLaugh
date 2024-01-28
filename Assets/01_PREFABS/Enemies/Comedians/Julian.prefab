@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 9087554073819654208}
   - component: {fileID: 3408309268168245951}
   - component: {fileID: -4227440854814576642}
+  - component: {fileID: 4121259899973195468}
   m_Layer: 8
   m_Name: Julian
   m_TagString: Untagged
@@ -588,6 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileSpeed: 20
   _firePoint: {fileID: 1533957375374917631}
+  _leadChance: 0.5
   _attackSoud: {fileID: 4207733842102494142}
 --- !u!114 &7537466261648653731
 MonoBehaviour:
@@ -754,3 +756,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepTime: 0.3
   attacking: 0
+--- !u!114 &4121259899973195468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266130097867109107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadc7bc3384988f4b81f8cacf57d1588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

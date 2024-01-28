@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 9015818363548150670}
   - component: {fileID: -6640959786780299618}
   - component: {fileID: 9150206540416999181}
+  - component: {fileID: 4723721563935083187}
   m_Layer: 8
   m_Name: Jordan
   m_TagString: Untagged
@@ -450,6 +451,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeUp: 0.05
   _timeDown: 0.05
+--- !u!114 &4723721563935083187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201891772124829292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadc7bc3384988f4b81f8cacf57d1588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5201891773245239991
 GameObject:
   m_ObjectHideFlags: 0

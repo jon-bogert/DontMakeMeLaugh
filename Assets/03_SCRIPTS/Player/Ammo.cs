@@ -46,8 +46,7 @@ public class Ammo : MonoBehaviour
     {
         if (_clip <= 0)
         {            
-            TryReload();
-            _gunSoundPlayer.Play("empty", SoundPlayer.Bank.Single);
+            TryReload();            
         }
         if (_tryReload)
         {
@@ -82,6 +81,7 @@ public class Ammo : MonoBehaviour
 
     public void Reload()
     {
+        _gunSoundPlayer.Play("empty", SoundPlayer.Bank.Single);
         _gunSoundPlayer.Play("reload", SoundPlayer.Bank.Single);
         if (_ammo != 0)
         {

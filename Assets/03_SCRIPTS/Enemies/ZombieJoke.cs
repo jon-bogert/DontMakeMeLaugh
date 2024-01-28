@@ -10,12 +10,14 @@ public class ZombieJoke : MonoBehaviour
     SoundPlayer _soundPlayer;
     float _jokeLength;
     float _timer;
+    EnemyAudioRaycastCheck _audioRay;
 
     private void Awake()
     {
         _zombie = GetComponentInParent<EnemyMelee>();
         _zombieHealth = _zombie.GetComponent<Health>();
         _soundPlayer = GetComponent<SoundPlayer>();
+        _audioRay = GetComponentInParent<EnemyAudioRaycastCheck>();
     }
     private void Start()
     {
@@ -30,7 +32,10 @@ public class ZombieJoke : MonoBehaviour
         if (_timer >= _jokeLength && _zombieHealth.health > 0)
         {
             _timer = 0f;
-            _soundPlayer.Play("joke", SoundPlayer.Bank.Single);
+            if (_audioRay.canPlaySound)
+            {
+                _soundPlayer.Play("joke", SoundPlayer.Bank.Single);
+            }            
         }
     }
 }
