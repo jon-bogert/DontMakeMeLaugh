@@ -11,9 +11,11 @@ public class EnemyMoveSounds : MonoBehaviour
     SoundPlayer _soundPlayer;
     EnemyMelee _enemyMelee;
     EnemyRanged _enemyRanged;
+    EnemyAudioRaycastCheck _audioRay;
 
     private void Awake()
     {
+        _audioRay = GetComponentInParent<EnemyAudioRaycastCheck>();
         _soundPlayer = GetComponent<SoundPlayer>();
         if (gameObject.TryGetComponent<EnemyMelee>(out _enemyMelee))
         {
@@ -39,7 +41,10 @@ public class EnemyMoveSounds : MonoBehaviour
                 if (_timer > _stepTime)
                 {
                     _timer = 0f;
-                    _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
+                    if (_audioRay.canPlaySound)
+                    {
+                        _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
+                    }                    
                 }
             }
         }
@@ -51,7 +56,10 @@ public class EnemyMoveSounds : MonoBehaviour
                 if (_timer > _stepTime)
                 {
                     _timer = 0f;
-                    _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
+                    if (_audioRay.canPlaySound)
+                    {
+                        _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
+                    }                    
                 }
             }
 

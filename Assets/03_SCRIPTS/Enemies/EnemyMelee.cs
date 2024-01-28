@@ -35,6 +35,7 @@ public class EnemyMelee : MonoBehaviour
     Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
+    EnemyAudioRaycastCheck _audioRay;
     
     public Vector3 velocityOverride = Vector3.zero;
 
@@ -72,8 +73,8 @@ public class EnemyMelee : MonoBehaviour
 
     private void Awake()
     {
-        _charController = GetComponent<CharacterController>();        
-
+        _charController = GetComponent<CharacterController>();
+        _audioRay = GetComponent<EnemyAudioRaycastCheck>();
         _stateMachine = new StateMachine<EnemyMelee>(this);
         _stateMachine.AddState<MeleeIdle>();
         _stateMachine.AddState<MeleePatrol>();
@@ -151,13 +152,15 @@ public class EnemyMelee : MonoBehaviour
 
     internal void Attack()
     {
-        Debug.Log(name + " is Attacking");
         onAttack?.Invoke();
     }
 
     internal void PlayDeathLine()
     {
-        _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
+        if (_audioRay.canPlaySound)
+        {
+            _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
+        }        
     }
 
     internal void OnXtraDead()

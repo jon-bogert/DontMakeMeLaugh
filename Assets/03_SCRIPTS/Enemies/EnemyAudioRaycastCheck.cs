@@ -4,7 +4,6 @@ public class EnemyAudioRaycastCheck : MonoBehaviour
     LayerMask _raycastMask;
 
     Transform _camera;
-
     void Awake()
     {
         _camera = Camera.main.transform;

@@ -24,35 +24,35 @@ public class HealthFace : MonoBehaviour
         _swapTimer = _swapTime;
     }
     private void Update()
-    {        
+    {
+        CheckHealth();
         _swapTimer -= Time.deltaTime;       
         if (_swapTimer <= 0)
-        {            
+        {           
             Swap();
         }
     }
 
     public void CheckHealth()
     {
-        Debug.Log("Health Checked");
         _playerHealth = _playerHealthScript.health;
         
-        if (_playerHealth <= 20)
+        if (_playerHealth <= 0)
         {
             _arrayPair = 9;
             Swap();
         }
-        else if (_playerHealth <= 40)
+        else if (_playerHealth <= 30)
         {
             _arrayPair = 7;
             Swap();
         }
-        else if (_playerHealth <= 60)
+        else if (_playerHealth <= 50)
         {
             _arrayPair = 5;
             Swap();
         }
-        else if (_playerHealth <= 80)
+        else if (_playerHealth <= 70)
         {
             _arrayPair = 3;
             Swap();

@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: -6815507900793248171}
   - component: {fileID: 3526013596498444787}
   - component: {fileID: 1987644590871165500}
+  - component: {fileID: -3588084366548384145}
   m_Layer: 8
   m_Name: KevinY
   m_TagString: Untagged
@@ -450,6 +451,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeUp: 0.05
   _timeDown: 0.05
+--- !u!114 &-3588084366548384145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201891772124829292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadc7bc3384988f4b81f8cacf57d1588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5201891773245239991
 GameObject:
   m_ObjectHideFlags: 0

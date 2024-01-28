@@ -33,6 +33,7 @@ public class EnemyRanged : MonoBehaviour
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
     SoundPlayer _dialogueSoundPlayer;
+    EnemyAudioRaycastCheck _audioRay;
 
     public float patrolSpeed { get { return _patrolSpeed; } }
     public float idleTime { get { return _idleTime; } }
@@ -69,7 +70,7 @@ public class EnemyRanged : MonoBehaviour
     {
         _charController = GetComponent<CharacterController>();
         _projectilePool = GetComponent<ProjectilePool>();
-
+        _audioRay = GetComponent<EnemyAudioRaycastCheck>();
         _stateMachine = new StateMachine<EnemyRanged>(this);
         _stateMachine.AddState<RangedIdle>();
         _stateMachine.AddState<RangedPatrol>();
@@ -134,14 +135,15 @@ public class EnemyRanged : MonoBehaviour
 
     internal void Attack()
     {
-        Debug.Log(name + " is Attacking");
         onAttack?.Invoke();
     }
 
     internal void PlayDeathLine()
     {
-        Debug.Log("play death line");
-        _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
+        if (_audioRay.canPlaySound)
+        {
+            _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
+        }        
     }
 
     internal void SanityBoost()

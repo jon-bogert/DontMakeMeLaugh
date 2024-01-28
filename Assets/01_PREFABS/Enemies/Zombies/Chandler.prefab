@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: -2794324386546607256}
   - component: {fileID: 5371407758924420264}
   - component: {fileID: -4771148313717031281}
+  - component: {fileID: -1478296912710207061}
   m_Layer: 8
   m_Name: Chandler
   m_TagString: Untagged
@@ -606,6 +607,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeUp: 0.05
   _timeDown: 0.05
+--- !u!114 &-1478296912710207061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201891772124829292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadc7bc3384988f4b81f8cacf57d1588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5201891773245239991
 GameObject:
   m_ObjectHideFlags: 0

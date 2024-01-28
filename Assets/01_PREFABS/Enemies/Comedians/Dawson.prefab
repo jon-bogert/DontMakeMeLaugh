@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: -4561389768004242448}
   - component: {fileID: -5971576705904630982}
   - component: {fileID: -8644318023512187891}
+  - component: {fileID: 2276245405757262270}
   m_Layer: 8
   m_Name: Dawson
   m_TagString: Untagged
@@ -562,6 +563,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepTime: 0.3
   attacking: 0
+--- !u!114 &2276245405757262270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266130097867109107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadc7bc3384988f4b81f8cacf57d1588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6742344571464796284
 GameObject:
   m_ObjectHideFlags: 0

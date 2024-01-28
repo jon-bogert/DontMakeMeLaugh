@@ -19,7 +19,7 @@ public class Door : MonoBehaviour, IInteractable
         _soundPlayer = GetComponent<SoundPlayer>();        
         _collider = GetComponent<Collider>();
         _meshRenderers = GetComponentsInChildren<MeshRenderer>();
-        Debug.Log(_meshRenderers.Length);
+        
         foreach (Health h in _requiredObjects)
         {
             h.onDeath.AddListener(TrackDeath);
