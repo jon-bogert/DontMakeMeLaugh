@@ -4702,6 +4702,24 @@ PrefabInstance:
         Burrows\nDawson Inkster\nJordan Watterson\nJulian Parks\nNick Oreskovic\nPablo
         Clavijo Qui\xF1on\nPierre Dussausse\nSophie Hissan"
       objectReference: {fileID: 0}
+    - target: {fileID: 5466354480121255766, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: Zombies
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466354480121255766, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6014587943600792894, guid: ec0e1e1d201ecab4c86d8804cb7470b7,
+        type: 2}
+    - target: {fileID: 5466354480323161862, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: 'Nadine Inkster
+
+        Lisa Smedman'
+      objectReference: {fileID: 0}
     - target: {fileID: 5466354480466623334, guid: 9eefaf81232f675489f1f3608f2fe565,
         type: 3}
       propertyPath: m_text
@@ -4709,10 +4727,47 @@ PrefabInstance:
 
         Tiffany Nguyen'
       objectReference: {fileID: 0}
+    - target: {fileID: 5466354480551668112, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: Audio Designers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466354480551668112, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6014587943600792894, guid: ec0e1e1d201ecab4c86d8804cb7470b7,
+        type: 2}
     - target: {fileID: 5466354480846901308, guid: 9eefaf81232f675489f1f3608f2fe565,
         type: 3}
       propertyPath: m_text
       value: Game Programmers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466354481128113136, guid: 9eefaf81232f675489f1f3608f2fe565,
+        type: 3}
+      propertyPath: m_text
+      value: '(Pictures of)
+
+
+        Sophie Hissan
+
+        Vince Ellery
+
+        Chase
+        Burrows
+
+        Nick Oreskavic
+
+        Fabian Merano
+
+        Jordan Hurley
+
+        Kevin
+        Yu
+
+        Marc Van Neikerk
+
+        Chandler Means'
       objectReference: {fileID: 0}
     - target: {fileID: 5466354481207051790, guid: 9eefaf81232f675489f1f3608f2fe565,
         type: 3}
