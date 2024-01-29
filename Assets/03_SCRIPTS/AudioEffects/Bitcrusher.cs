@@ -1,16 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class Bitcrusher : MonoBehaviour
 {
-    public int resolution = 16;
+    public int resolution = 256;
     public int sampleRate = 8000;
 
     private int internalSampleRate;
+    string n;
 
     private void Start()
     {
         internalSampleRate = AudioSettings.outputSampleRate;
+        n = name;
     }
 
     void OnAudioFilterRead(float[] data, int channels)
@@ -19,10 +20,17 @@ public class Bitcrusher : MonoBehaviour
         if (sampleRate > internalSampleRate)
             sampleRate = internalSampleRate;
 
+        if (sampleRate < 0)
+            sampleRate = 1;
+
         if (resolution <= 0)
             resolution = 1;
 
-        int sampleWidth = internalSampleRate / sampleRate;
+        int sampleWidth = internalSampleRate / 8000;
+        if (sampleRate == 0)
+            Debug.Log(n + " is the issue");
+        else
+            sampleWidth = internalSampleRate / sampleRate;
 
         for (int i = 0; i < data.Length; i += channels)
         {

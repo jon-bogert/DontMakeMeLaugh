@@ -8,6 +8,7 @@ public class RangedDead : IState<EnemyRanged>
     public void Enter(EnemyRanged agent)
     {
         agent.SetVelocity(Vector3.zero);
+        agent.PlayDeathLine();
         _timer = 0f;
     }
 
@@ -16,7 +17,7 @@ public class RangedDead : IState<EnemyRanged>
         if (_timer >= agent.idleTime)
         {
             _timer = 0;
-            agent.PlayDeathLine();
+            //agent.PlayDeathLine();
             return;
         }
         _timer += deltaTime;

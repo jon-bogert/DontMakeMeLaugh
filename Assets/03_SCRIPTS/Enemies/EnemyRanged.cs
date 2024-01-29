@@ -11,22 +11,29 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] float _idleTime = 3f;
     [SerializeField] float _patrolArriveDistance = 1f;
     [SerializeField] float _attackRate = 2f;
+    [SerializeField] float _healAmount = 10f;
     [SerializeField] Transform[] _patrolPoints = new Transform[0];
+    [SerializeField] LayerMask _wallcheckMask;
 
     [SerializeField] Texture _attackTexture;
+    [SerializeField] Texture _deadTexture;
 
     [Header("References")]
     [SerializeField] Transform _camera;
+    [SerializeField] SoundPlayer _dialougeSoundPlayer;
 
     [Header("Events")]
     [SerializeField] UnityEvent onAttack;
 
     CharacterController _charController;
     ProjectilePool _projectilePool;
+    Health _playerHealth;
     StateMachine<EnemyRanged> _stateMachine;
     Material _material;
     int _moveTarget = 0;
     Vector3 _velocity = Vector3.zero;
+    SoundPlayer _dialogueSoundPlayer;
+    EnemyAudioRaycastCheck _audioRay;
 
     public float patrolSpeed { get { return _patrolSpeed; } }
     public float idleTime { get { return _idleTime; } }
@@ -37,19 +44,33 @@ public class EnemyRanged : MonoBehaviour
     {
         get
         {
-            return (_camera.position - transform.position).sqrMagnitude <= _detectionRange * _detectionRange;
+            float p = (_camera.position - transform.position).sqrMagnitude;
+            float w = float.MaxValue;
+            RaycastHit[] hitInfo = Physics.RaycastAll(transform.position, (_camera.position - transform.position).normalized, _detectionRange, _wallcheckMask);
+            if (hitInfo.Length == 0)
+            {
+                return p <= _detectionRange * _detectionRange;
+            }
+            foreach (RaycastHit hit in hitInfo)
+            {
+                if (hit.distance < w)
+                    w = hit.distance;
+            }
+            w *= w;
+            return p <= _detectionRange * _detectionRange && w > p;
         }
     }
     public Vector3 moveTarget {  get { return _patrolPoints[_moveTarget].position; } }
     public float deathLineLength { get { return 3f; } } //TODO get from audio length
     public EnemyState currentState { get { return (EnemyState)_stateMachine.currentState; } }
     public bool doesPatrol { get { return _patrolPoints != null &&  _patrolPoints.Length > 0;} }
+    public LayerMask wallcheckMask { get { return _wallcheckMask; } }
 
     private void Awake()
     {
         _charController = GetComponent<CharacterController>();
         _projectilePool = GetComponent<ProjectilePool>();
-
+        _audioRay = GetComponent<EnemyAudioRaycastCheck>();
         _stateMachine = new StateMachine<EnemyRanged>(this);
         _stateMachine.AddState<RangedIdle>();
         _stateMachine.AddState<RangedPatrol>();
@@ -72,6 +93,10 @@ public class EnemyRanged : MonoBehaviour
         _material = GetComponentInChildren<MeshRenderer>().material;
         if (_material == null)
             Debug.LogError("Enemy Ranged \"" + name + "\" was unable find it's material");
+
+        _playerHealth = FindObjectOfType<PlayerMovement>().GetComponent<Health>();
+        if (_playerHealth == null)
+            Debug.LogWarning("EnemyMelee could not find Player's health component");
     }
 
     private void Update()
@@ -110,27 +135,45 @@ public class EnemyRanged : MonoBehaviour
 
     internal void Attack()
     {
-        Debug.Log(name + " is Attacking");
         onAttack?.Invoke();
     }
 
     internal void PlayDeathLine()
     {
-        Debug.Log(name + ": Play death line");
+        if (_audioRay.canPlaySound)
+        {
+            _dialougeSoundPlayer.Play("death", SoundPlayer.Bank.Single);
+        }        
     }
 
     internal void SanityBoost()
     {
-        Debug.Log(name + ": Sanity Boost");
+        _playerHealth.Heal(_healAmount);
     }
 
     public void Kill()
     {
+        if (currentState == EnemyState.XtraDead)
+            return;
+
         if (currentState == EnemyState.Dead)
         {
             ChangeState(EnemyState.XtraDead);
             return;
         }
+
+        if (_deadTexture != null)
+        {
+            _material.SetTexture("_MainTex", _deadTexture);
+            _material.SetTexture("_LeftTex", _deadTexture);
+            _material.SetTexture("_RightTex", _deadTexture);
+            _material.SetTexture("_BackTex", _deadTexture);
+        }
+        else
+        {
+            Debug.LogWarning("Enemy Ranged \"" + name + "\" Dead texture was null");
+        }
+
         ChangeState(EnemyState.Dead);
     }
 }

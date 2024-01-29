@@ -7,12 +7,13 @@ public class PlayerMoveSounds : MonoBehaviour
 
     float timer = 0f;
 
-    SoundManager _soundManager;
+    SoundPlayer _soundPlayer;
     PlayerMovement _playerMovement;
 
-    private void Start()
+    private void Awake()
     {
-        _soundManager = FindObjectOfType<SoundManager>(); // TODO - Change to singleton
+        _soundPlayer = GetComponent<SoundPlayer>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -23,9 +24,9 @@ public class PlayerMoveSounds : MonoBehaviour
         float time = (_playerMovement.isSprinting) ? _sprintStepTime : _stepTime;
         timer += Time.deltaTime;
         if (timer > time)
-        {
-            timer = 0f;
-            _soundManager.Play("step", SoundManager.Bank.Multi);
+        {            
+            _soundPlayer.Play("step", SoundPlayer.Bank.Multi);
+            timer = 0f;            
         }
     }
 

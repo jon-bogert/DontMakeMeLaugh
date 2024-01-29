@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _bobRateSprinting = 15f;
     [SerializeField] float _bobHeight = 0.1f;
     [SerializeField] float _bobReturnSpeed = 0.25f;
+    [SerializeField] float _gunBobAmount = 0.5f;
 
     [Header("Looking")]
     [SerializeField] float _lookSpeed = 1f;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform _camera;
+    [SerializeField] GameObject _gun;
 
     [Header("Inputs")]
     [SerializeField] InputActionReference _moveInput;
@@ -44,8 +46,11 @@ public class PlayerMovement : MonoBehaviour
     float _cameraHeight = 1.5f;
     float _t = 0f;
     float _returnFrom = 1.5f;
+    Vector3 _returnFromGun = Vector3.zero;
     float _returnTimer = 0;
     bool _isGrounded = false;
+    Vector3 _gunPos = Vector3.zero;
+    Vector3 _gunReturnFrom = Vector3.zero;
 
     CharacterController _charController;
 
@@ -69,6 +74,12 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (_gun != null)
+            _gunPos = _gun.transform.localPosition;
+
+        _gamepadSensitivity = AppSettings.gamepadSensitivity;
+        _mouseSensitivity = AppSettings.mouseSensitivity;
     }
 
     private void Update()
@@ -109,6 +120,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 _returnTimer = _bobReturnSpeed;
                 _returnFrom = _camera.localPosition.y;
+                _gunReturnFrom = _gun.transform.localPosition;
+
             }
             _isMoving = false;
         }
@@ -148,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void LookMouse(float axis)
     {
-        transform.Rotate(Vector3.up, axis * _lookSpeed * 0.001f * _mouseSensitivity);
+        transform.Rotate(Vector3.up, axis * _lookSpeed * 0.001f * _mouseSensitivity * Time.timeScale);
     }
 
     private void LookGamepad(float axis)
@@ -232,11 +245,21 @@ public class PlayerMovement : MonoBehaviour
                 newY,
                 _camera.localPosition.z);
 
+            if (_gun != null)
+            {
+                float gunY = _gunPos.y + _gunBobAmount * 5f * Mathf.Sin(_t - 0.1f);
+                float gunX = _gunPos.x + _gunBobAmount * 5f * Mathf.Sin(_t * 0.5f);
+                _gun.transform.localPosition = new Vector3(
+                    gunX,
+                    gunY,
+                    _gun.transform.localPosition.z);
+            }
+
             float rate = (_allowSprint && _sprintInput.action.IsPressed()) ? _bobRateSprinting : _bobRate;
             _t += Time.deltaTime * rate;
 
-            while (_t > 2 * Mathf.PI)
-                _t -= 2 * Mathf.PI;
+            while (_t > 4 * Mathf.PI)
+                _t -= 4 * Mathf.PI;
             return;
         }
 
@@ -251,6 +274,7 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 _cameraHeight,
                 _camera.localPosition.z);
+            _gun.transform.localPosition = _gunPos;
             return;
         }
 
@@ -259,6 +283,9 @@ public class PlayerMovement : MonoBehaviour
                 _camera.localPosition.x,
                 y,
                 _camera.localPosition.z);
+
+        Vector3 gPos = Vector3.Lerp(_gunReturnFrom, _gunPos, t);
+        _gun.transform.localPosition = gPos;
 
     }
 }

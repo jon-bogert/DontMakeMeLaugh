@@ -8,6 +8,7 @@ public class MeleeDead : IState<EnemyMelee>
     public void Enter(EnemyMelee agent)
     {
         agent.SetVelocity(Vector3.zero);
+        agent.PlayDeathLine();
         _timer = 0f;
     }
 
@@ -32,7 +33,7 @@ public class MeleeXtraDead : IState<EnemyMelee>
 {
     public void Enter(EnemyMelee agent)
     {
-        agent.SanityBoost();
+        agent.OnXtraDead();
     }
     public void Update(EnemyMelee agent, float deltaTime) { }
     public void Exit(EnemyMelee agent) { }
